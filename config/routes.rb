@@ -1,6 +1,8 @@
 Waste5::Application.routes.draw do
 
-  root :to => 'pages#index'
+  root :to => 'posts#show'
+
+  resources :posts
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

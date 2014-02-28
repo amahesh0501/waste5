@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+videos = ["RRPcYcaggNE", "yUYrpC4KFMs", "6OfQi6zIlzE", "7pYOZduNhtY", "VIMQV_vnkNc", "txEUyOKrCxM"]
+
+videos.each do |video_id|
+  Post.create(youtube_id: video_id)
+end
