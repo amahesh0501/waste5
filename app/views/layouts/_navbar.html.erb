@@ -11,15 +11,23 @@
        </div>
        <div class="navbar-collapse collapse">
          <ul class="nav navbar-nav navbar-right">
-            <% if current_user %>
-              <li><%= link_to "Log Out", destroy_user_session_path  %></li>
-            <% else %>
-              <%= link_to image_tag('/assets/fb.png', class: "fbbutton"), user_omniauth_authorize_path(:facebook) %>
-            <% end %>
+          <%= button_to "Skip To Next Video", post_path(@next_post), :method => :get, class: "next-video-button-nav navbar-header" %>
+
+
+
          </ul>
 
         <%= form_for :post, :html => { :class => "navbar-left search-form"} do |f| %>
           <img class="search-icon" src="http://png-4.findicons.com/files/icons/1389/g5_system/32/toolbar_find.png"/><%= search_field(:post, :title, placeholder: "Search Videos", class: "search rounded")  %>
+
+
+
+          <ul>
+            <% if current_user %>
+              <li><%= link_to "Log Out", destroy_user_session_path  %></li>
+
+            <% end %>
+          </ul>
         <% end %>
 
        </div>

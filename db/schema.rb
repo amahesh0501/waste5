@@ -17,9 +17,10 @@ ActiveRecord::Schema.define(:version => 20140303090901) do
     t.string   "youtube_id"
     t.string   "text"
     t.string   "description"
+    t.text     "comedian_name"
     t.integer  "seconds"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "users", :force => true do |t|

@@ -1,5 +1,4 @@
 .fbbutton{
-  margin-top: 11px;
   margin-right: 20px;
   border: 0;
   box-shadow: 0;
@@ -23,3 +22,16 @@
 .search{
   border: 1px solid #ffffff;
 }
+
+.next-video-button-nav{
+  margin-top: 11px;
+  border: 0;
+  box-shadow: 0;
+  height: 40px;
+  color: white;
+  border-radius: 3px;
+  background-color: #2980b9;
+  padding: 4px 8px;
+}
+
+    <%= link_to image_tag('/assets/fb.png', class: "fbbutton"), user_omniauth_authorize_path(:facebook) unless current_user %>
