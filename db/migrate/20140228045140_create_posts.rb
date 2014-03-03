@@ -4,6 +4,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :youtube_id
       t.string :text
       t.string :description
+      t.text :comedian_name
       t.integer :seconds
 
       t.timestamps
