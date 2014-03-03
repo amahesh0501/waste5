@@ -1,5 +1,11 @@
+.logo{
+  margin-top: 20px;
+  padding-left: 30px;
+}
+
 .fbbutton{
-  margin-right: 20px;
+  margin-top: 30px;
+  margin-right: 60px;
   border: 0;
   box-shadow: 0;
   height: 40px;
@@ -8,7 +14,7 @@
 .search-form {
   margin-left: 30px;
   left: 200px;
-  padding-top: 15px;
+  padding-top: 35px;
   display: inline-block;
   border: 0;
 }
@@ -23,7 +29,48 @@
   border: 1px solid #ffffff;
 }
 
-.next-video-button-nav{
+.nav-link{
+  padding-top: 18px;
+
+}
+
+.nav-link a{
+  color: #2980b9;
+  font-weight: bold;
+}
+
+.navbar-toggle{
+  background-color: lightgray !important;
+  background-image:url('http://www.flaticon.com/png/256/20569.png') !important;
+  margin-top: 18px;
+}
+
+.icon-bar{
+  background-color: darkgray !important;
+}
+
+button{
+  margin-top: 25px !important;
+}
+@media screen and (max-width: 767px){
+  .search-icon{
+    margin-left: -50px !important;
+    margin-bottom: 5px !important;
+
+  }
+  .search{
+    /*display: none;*/
+    padding-left: -100px !important;
+    margin-bottom: 5px !important;
+  }
+
+  .nav-link a{
+    margin-top: 10px !important;
+    font-weight: bold;
+  }
+}
+
+/*.next-video-button-nav{
   margin-top: 11px;
   border: 0;
   box-shadow: 0;
@@ -33,5 +80,5 @@
   background-color: #2980b9;
   padding: 4px 8px;
 }
+*/
 
-    <%= link_to image_tag('/assets/fb.png', class: "fbbutton"), user_omniauth_authorize_path(:facebook) unless current_user %>

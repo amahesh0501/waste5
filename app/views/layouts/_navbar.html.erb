@@ -1,33 +1,30 @@
-<div class="navbar  navbar-fixed-top" role="navigation">
+<div class="navbar role="navigation">
      <div class="container-fluid">
        <div class="navbar-header">
+
          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
            <span class="sr-only">Toggle navigation</span>
            <span class="icon-bar"></span>
            <span class="icon-bar"></span>
            <span class="icon-bar"></span>
          </button>
-         <a class="navbar-brand" href="#">Project name</a>
+         <img class="logo" src="http://i.imgur.com/mUvk8TD.png" />
        </div>
        <div class="navbar-collapse collapse">
          <ul class="nav navbar-nav navbar-right">
-          <%= button_to "Skip To Next Video", post_path(@next_post), :method => :get, class: "next-video-button-nav navbar-header" %>
-
+          <% if current_user %>
+            <li class="nav-link"><%= link_to "Dashboard", root_path  %></li>
+            <li class="nav-link"><%= link_to "Log Out", destroy_user_session_path  %></li>
+          <% else %>
+            <li class="nav-link"><%= link_to "Sign In", user_omniauth_authorize_path(:facebook) unless current_user %></li>
+            <li class="nav-link"><%= link_to "Sign Up", user_omniauth_authorize_path(:facebook) unless current_user %></li>
+          <% end %>
 
 
          </ul>
 
         <%= form_for :post, :html => { :class => "navbar-left search-form"} do |f| %>
           <img class="search-icon" src="http://png-4.findicons.com/files/icons/1389/g5_system/32/toolbar_find.png"/><%= search_field(:post, :title, placeholder: "Search Videos", class: "search rounded")  %>
-
-
-
-          <ul>
-            <% if current_user %>
-              <li><%= link_to "Log Out", destroy_user_session_path  %></li>
-
-            <% end %>
-          </ul>
         <% end %>
 
        </div>

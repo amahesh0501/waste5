@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+
+
+
   def index
   end
 
@@ -6,6 +9,7 @@ class PostsController < ApplicationController
     posts = Post.all
     @video_id = posts.sample.youtube_id
     @next_post = posts.sample
+    params[:autoplay] ? @autoplay = 1 : @autoplay = 0
   end
 
   def new

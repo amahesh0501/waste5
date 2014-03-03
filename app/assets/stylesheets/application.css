@@ -12,19 +12,7 @@
  *= require_tree .
  */
 
-body {
-  margin:0;
-
-}
 
 
-.next-video-button{
-  color: white;
-  border-radius: 3px;
-  background-color: #26A65B;
-  padding: 10px 25px 10px 25px;
-  border: 0;
-  font-size: 25px;
 
 
-}
