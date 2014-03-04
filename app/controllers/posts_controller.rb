@@ -7,7 +7,8 @@ class PostsController < ApplicationController
 
   def show
     posts = Post.all
-    @video_id = posts.sample.youtube_id
+    @post = posts.sample
+    @video_id = @post.youtube_id
     @next_post = posts.sample
     params[:autoplay] ? @autoplay = 1 : @autoplay = 0
   end

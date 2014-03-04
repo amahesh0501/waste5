@@ -8,6 +8,8 @@ gem 'rails', '3.2.14'
 gem 'pg'
 gem 'devise'
 gem 'omniauth-facebook'
+gem "google-api-client", "~> 0.7.1"
+gem "trollop", "~> 2.0"
 
 
 # Gems used only for assets and not required

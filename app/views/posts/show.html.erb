@@ -1,10 +1,10 @@
 <div class="show_video_page">
-  <iframe width="1280" height="600" src="http://www.youtube.com/embed/<%=@video_id%>?autoplay=1" frameborder="0" allowfullscreen></iframe>
+  <iframe width="1280" height="600" src="http://www.youtube.com/embed/<%=@video_id%>?autoplay=1&start=0" frameborder="0" allowfullscreen></iframe>
   <div class="row video_information">
     <div class="col-md-1"></div>
     <div class="col-md-8">
-      <h3>Russell Peters Stand Up Comedy! BEST EVER!</h3>
-      <p>If you never laugh at this video, there IS something incredibly wrong with you!!!!</p>
+      <h3><%= @post.title %></h3>
+      <p><%= @post.description %></p>
     </div>
     <div class="col-md-2">
       <%= button_to "Gimme Another One", post_path(@next_post, :autoplay => 1), :method => :get, class: "next-video-button-below" %>
@@ -14,6 +14,3 @@
   </div>
 
 </div>
-<style>
-
-</style>
