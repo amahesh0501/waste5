@@ -1,5 +1,8 @@
+<script src="http://www.youtube.com/iframe_api"></script>
+
 <div class="show_video_page">
-  <iframe width="1280" height="600" src="http://www.youtube.com/embed/<%=@video_id%>?autoplay=1&start=" frameborder="0" allowfullscreen></iframe>
+  <iframe id="explore_js" width="1280" height="700" src="https://www.youtube.com/embed/<%=@video_id%>?enablejsapi=1&autoplay=1&autohide=1&showinfo=0" frameborder="0" class="explore_embed" allowfullscreen></iframe>
+
   <div class="row video_information">
     <div class="col-md-1"></div>
     <div class="col-md-8">
