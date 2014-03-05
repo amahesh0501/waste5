@@ -13,6 +13,7 @@ gem 'omniauth-facebook'
 gem "google-api-client", "~> 0.7.1"
 gem "trollop", "~> 2.0"
 gem "youtube_it", "~> 2.4.0"
+gem 'pg_search'
 
 # Gems used only for assets and not required
 # in production environments by default.

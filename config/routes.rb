@@ -6,6 +6,12 @@ Waste5::Application.routes.draw do
 
   resources :posts
 
+  match '/search', :to => 'posts#search'
+
+  resources :tags, only: [] do
+    get :autocomplete_tag_name, :on => :collection
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

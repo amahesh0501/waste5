@@ -13,6 +13,10 @@ class PostsController < ApplicationController
     params[:autoplay] ? @autoplay = 1 : @autoplay = 0
   end
 
+  def search
+    @posts = Post.text_search(params[:query])
+  end
+
   def new
   end
 
