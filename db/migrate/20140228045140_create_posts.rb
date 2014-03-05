@@ -3,9 +3,12 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.string :youtube_id
       t.string :title
-      t.string :description
+      t.text :description
       t.text :comedian_name
-      t.text :date
+      t.datetime :date
+      t.integer :view_count
+      t.integer :duration
+      t.integer :rating
 
       t.timestamps
     end
