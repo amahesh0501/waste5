@@ -2,11 +2,28 @@ Waste5::Application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-  root :to => 'posts#show'
+  root :to => 'posts#browse'
 
   resources :posts
+  resources :comedians
+
+  match '/admin', :to => 'pages#admin'
 
   match '/search', :to => 'posts#search'
+  match '/report', :to => 'reports#report'
+
+
+  match '/browse', :to => 'posts#browse'
+  match '/short', :to => 'pages#short'
+  match '/medium', :to => 'pages#medium'
+  match '/long', :to => 'pages#long'
+  match '/african_american', :to => 'pages#african_american'
+  match '/white', :to => 'pages#white'
+  match '/mei', :to => 'pages#mei'
+  match '/asian', :to => 'pages#asian'
+  match '/latino', :to => 'pages#latino'
+  match '/all', :to => 'pages#all'
+
 
   resources :tags, only: [] do
     get :autocomplete_tag_name, :on => :collection

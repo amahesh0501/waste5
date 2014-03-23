@@ -1,0 +1,48 @@
+<div class="container">
+<br/>
+  <ul class="nav nav-tabs">
+    <li class="active" ><a href="#reports" data-toggle="tab">Reports</a></li>
+    <li><a href="#no_comedian" data-toggle="tab">Posts with No Comedian</a></li>
+    <li><a href="#all_comedians" data-toggle="tab">List of Comedians</a></li>
+
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div class="tab-pane active" id="reports">
+      <br/>
+      <table class="table table-striped">
+        <% @reports.each do |report| %>
+          <tr>
+            <td><%= link_to report.post_to_report, post_path(report.post_to_report)  %></td>
+            <td><%= link_to "Delete ", post_path(report.post_to_report), :method => 'delete' %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <div class="tab-pane" id="no_comedian">
+      <br/>
+      <table class="table table-striped">
+        <% @no_comedian_posts.each do |post| %>
+          <tr>
+            <td><%= link_to post.name, edit_post_path(post.id)  %></td>
+          </tr>
+        <% end %>
+      </table>
+      <br/>
+    </div>
+    <div class="tab-pane" id="all_comedians">
+      <br/>
+      <table class="table table-striped">
+        <% @comedians.each do |comedian| %>
+          <tr>
+            <td><%= link_to comedian.name, comedian_path(comedian.id)  %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+
+  </div>
+  <br/>
+
+</div>

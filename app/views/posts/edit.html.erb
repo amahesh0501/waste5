@@ -1,0 +1,17 @@
+<div class="container">
+<%= form_for [@post] do |f| %>
+  <div class="form-group">
+    <%= f.label :title %><br/>
+    <%= f.text_field :title %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %><br/>
+    <%= f.text_area :description, :cols => "80", :rows => "5"  %>
+ </div>
+  <div class="form-group">
+    <%= f.label :comedian_id %><br/>
+    <%= f.text_field :comedian_id %>
+ </div>
+  <%= f.submit 'Submit', :class => "btn btn-success" %>
+<% end %>
+</div>

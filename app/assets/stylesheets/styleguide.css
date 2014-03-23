@@ -6,3 +6,7 @@ body {
   background-color: #ededed !important;
   margin-top: 90px;
 }
+
+a {
+  color: #3498db;
+}

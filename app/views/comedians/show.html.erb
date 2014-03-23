@@ -14,8 +14,7 @@
       <p><%= link_to "Skip and report as not standup", {:controller => "reports", :action => "report", :post_to_report => @post.id }%></p>
     </div>
     <div class="col-md-2">
-      <%= button_to "Next Video", post_path(@next_post, :autoplay => 1), :method => :get, class: "next-video-button-below" %>
-
+      <%= button_to "Next Video", comedian_path(@comedian, :autoplay => 1), :method => :get, class: "next-video-button-below" %>
 
 
     </div>
