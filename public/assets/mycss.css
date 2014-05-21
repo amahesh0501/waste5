@@ -5,9 +5,17 @@
   width: 100% !important;
 }
 
+.next_video{
+  width: 100%;
+  margin-top: -20px !important;
+  height: 30px;
+  font-size: 15px;
+}
+
 }
 
 .explore_embed{
   height:400px;
   width: 700px;
 }
+
