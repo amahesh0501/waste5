@@ -1,13 +1,36 @@
-<br/>
-<div class="container">
-  <h2> Videos matching your search:</h2>
+<div class="page-container"><!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
+  <%= render 'layouts/sidebar' %>
 
-  <% if @posts.length == 0 %>
-    <p> There are no videos matching your search. </p>
-  <% end %>
-  <% @posts.each do |post| %>
-    <% show_post = Post.find_by_title(post.title) %>
-    <p><a href="/posts/<%=show_post.id%>"><%= post.title %></a></p>
-  <% end %>
+
+
+  <div class="main-content">
+
+   <%= render 'layouts/navbar' %>
+
+   <br/>
+   <div class="container">
+     <h2> Videos matching your search:</h2>
+
+     <% if @posts.length == 0 %>
+       <p> There are no videos matching your search. </p>
+     <% end %>
+     <% @posts.each do |post| %>
+       <% show_post = Post.find_by_title(post.title) %>
+       <p><a href="/posts/<%=show_post.id%>"><%= post.title %></a></p>
+     <% end %>
+   </div>
+   <br/>
+
+
+
+
+
+ </div>
+
+
+
+
+
 </div>
-<br/>
+
+

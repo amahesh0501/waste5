@@ -1,328 +1,621 @@
-<div class="container">
-  <br/>
+<div class="page-container"><!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
+  <%= render 'layouts/sidebar' %>
 
-  <h2> Filter comedians by first name </h2>
 
-  <ul class="nav nav-tabs">
-    <li><a href="#a" data-toggle="tab">A</a></li>
-    <li><a href="#b" data-toggle="tab">B</a></li>
-    <li><a href="#c" data-toggle="tab">C</a></li>
-    <li><a href="#d" data-toggle="tab">D</a></li>
-    <li><a href="#e" data-toggle="tab">E</a></li>
-    <li><a href="#f" data-toggle="tab">F</a></li>
-    <li><a href="#g" data-toggle="tab">G</a></li>
-    <li><a href="#h" data-toggle="tab">H</a></li>
-    <li><a href="#i" data-toggle="tab">I</a></li>
-    <li><a href="#j" data-toggle="tab">J</a></li>
-    <li><a href="#k" data-toggle="tab">K</a></li>
-    <li><a href="#l" data-toggle="tab">L</a></li>
-    <li><a href="#m" data-toggle="tab">M</a></li>
-    <li><a href="#n" data-toggle="tab">N</a></li>
-    <li><a href="#o" data-toggle="tab">O</a></li>
-    <li><a href="#p" data-toggle="tab">P</a></li>
-    <li><a href="#q" data-toggle="tab">Q</a></li>
-    <li><a href="#r" data-toggle="tab">R</a></li>
-    <li><a href="#s" data-toggle="tab">S</a></li>
-    <li><a href="#t" data-toggle="tab">T</a></li>
-    <li><a href="#u" data-toggle="tab">U</a></li>
-    <li><a href="#v" data-toggle="tab">V</a></li>
-    <li><a href="#w" data-toggle="tab">W</a></li>
-    <li><a href="#x" data-toggle="tab">X</a></li>
-    <li><a href="#y" data-toggle="tab">Y</a></li>
-    <li><a href="#z" data-toggle="tab">Z</a></li>
-  </ul>
 
-  <!-- Tab panes -->
-  <div class="tab-content">
-    <div class="tab-pane active" id="a">
-      <br/>
-      <% if @comedians["A"] %>
-        <% @comedians["A"].each do |comedian| %>
-          <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
-        <% end %>
-      <% else %>
-        <p> No comedians starting with this letter </p>
-      <% end %>
-      <br/>
+  <div class="main-content">
+
+   <%= render 'layouts/navbar' %>
+
+   <h2> Filter comedians by first name </h2>
+   <br/>
+   <div class="col-md-12">
+
+      <div class="panel-group" id="accordion-test">
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseOne">
+                A
+              </a>
+            </h4>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse in">
+            <div class="panel-body">
+              <br/>
+              <% if @comedians["A"] %>
+                <% @comedians["A"].each do |comedian| %>
+                  <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
+                <% end %>
+              <% else %>
+                <p> No comedians starting with this letter </p>
+              <% end %>
+              <br/>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseTwo">
+                B
+              </a>
+            </h4>
+          </div>
+          <div id="collapseTwo" class="panel-collapse collapse">
+            <div class="panel-body">
+              <br/>
+              <% if @comedians["B"] %>
+                <% @comedians["B"].each do |comedian| %>
+                  <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
+                <% end %>
+              <% else %>
+                <p> No comedians starting with this letter </p>
+              <% end %>
+              <br/>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseThree">
+                C
+              </a>
+            </h4>
+          </div>
+          <div id="collapseThree" class="panel-collapse collapse">
+            <div class="panel-body">
+              <br/>
+              <% if @comedians["C"] %>
+                <% @comedians["C"].each do |comedian| %>
+                  <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
+                <% end %>
+              <% else %>
+                <p> No comedians starting with this letter </p>
+              <% end %>
+              <br/>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseFOUR">
+                D
+              </a>
+            </h4>
+          </div>
+          <div id="collapseFOUR" class="panel-collapse collapse">
+            <div class="panel-body">
+              <br/>
+              <% if @comedians["D"] %>
+                <% @comedians["D"].each do |comedian| %>
+                  <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
+                <% end %>
+              <% else %>
+                <p> No comedians starting with this letter </p>
+              <% end %>
+              <br/>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseEE">
+                E
+              </a>
+            </h4>
+          </div>
+          <div id="collapseEE" class="panel-collapse collapse">
+            <div class="panel-body">
+              <br/>
+              <% if @comedians["E"] %>
+                <% @comedians["E"].each do |comedian| %>
+                  <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
+                <% end %>
+              <% else %>
+                <p> No comedians starting with this letter </p>
+              <% end %>
+              <br/>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseFF">
+                F
+              </a>
+            </h4>
+          </div>
+          <div id="collapseFF" class="panel-collapse collapse">
+            <div class="panel-body">
+              <br/>
+              <% if @comedians["F"] %>
+                <% @comedians["F"].each do |comedian| %>
+                  <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
+                <% end %>
+              <% else %>
+                <p> No comedians starting with this letter </p>
+              <% end %>
+              <br/>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseG">
+                G
+              </a>
+            </h4>
+          </div>
+          <div id="collapseG" class="panel-collapse collapse">
+            <div class="panel-body">
+              <br/>
+              <% if @comedians["G"] %>
+                <% @comedians["G"].each do |comedian| %>
+                  <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
+                <% end %>
+              <% else %>
+                <p> No comedians starting with this letter </p>
+              <% end %>
+              <br/>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseH">
+                H
+              </a>
+            </h4>
+          </div>
+          <div id="collapseH" class="panel-collapse collapse">
+            <div class="panel-body">
+              <br/>
+              <% if @comedians["H"] %>
+                <% @comedians["H"].each do |comedian| %>
+                  <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
+                <% end %>
+              <% else %>
+                <p> No comedians starting with this letter </p>
+              <% end %>
+              <br/>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseI">
+                I
+              </a>
+            </h4>
+          </div>
+          <div id="collapseI" class="panel-collapse collapse">
+            <div class="panel-body">
+              <br/>
+              <% if @comedians["I"] %>
+                <% @comedians["I"].each do |comedian| %>
+                  <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
+                <% end %>
+              <% else %>
+                <p> No comedians starting with this letter </p>
+              <% end %>
+              <br/>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseJ">
+                J
+              </a>
+            </h4>
+          </div>
+          <div id="collapseJ" class="panel-collapse collapse">
+            <div class="panel-body">
+              <br/>
+              <% if @comedians["J"] %>
+                <% @comedians["J"].each do |comedian| %>
+                  <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
+                <% end %>
+              <% else %>
+                <p> No comedians starting with this letter </p>
+              <% end %>
+              <br/>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseK">
+                K
+              </a>
+            </h4>
+          </div>
+          <div id="collapseK" class="panel-collapse collapse">
+            <div class="panel-body">
+              <br/>
+              <% if @comedians["K"] %>
+                <% @comedians["K"].each do |comedian| %>
+                  <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
+                <% end %>
+              <% else %>
+                <p> No comedians starting with this letter </p>
+              <% end %>
+              <br/>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseL">
+                L
+              </a>
+            </h4>
+          </div>
+          <div id="collapseL" class="panel-collapse collapse">
+            <div class="panel-body">
+              <br/>
+              <% if @comedians["L"] %>
+                <% @comedians["L"].each do |comedian| %>
+                  <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
+                <% end %>
+              <% else %>
+                <p> No comedians starting with this letter </p>
+              <% end %>
+              <br/>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseM">
+                M
+              </a>
+            </h4>
+          </div>
+          <div id="collapseM" class="panel-collapse collapse">
+            <div class="panel-body">
+              <br/>
+              <% if @comedians["M"] %>
+                <% @comedians["M"].each do |comedian| %>
+                  <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
+                <% end %>
+              <% else %>
+                <p> No comedians starting with this letter </p>
+              <% end %>
+              <br/>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseN">
+                N
+              </a>
+            </h4>
+          </div>
+          <div id="collapseN" class="panel-collapse collapse">
+            <div class="panel-body">
+              <br/>
+              <% if @comedians["N"] %>
+                <% @comedians["N"].each do |comedian| %>
+                  <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
+                <% end %>
+              <% else %>
+                <p> No comedians starting with this letter </p>
+              <% end %>
+              <br/>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseO">
+                O
+              </a>
+            </h4>
+          </div>
+          <div id="collapseO" class="panel-collapse collapse">
+            <div class="panel-body">
+              <br/>
+              <% if @comedians["O"] %>
+                <% @comedians["O"].each do |comedian| %>
+                  <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
+                <% end %>
+              <% else %>
+                <p> No comedians starting with this letter </p>
+              <% end %>
+              <br/>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseP">
+                P
+              </a>
+            </h4>
+          </div>
+          <div id="collapseP" class="panel-collapse collapse">
+            <div class="panel-body">
+              <br/>
+              <% if @comedians["P"] %>
+                <% @comedians["P"].each do |comedian| %>
+                  <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
+                <% end %>
+              <% else %>
+                <p> No comedians starting with this letter </p>
+              <% end %>
+              <br/>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseQ">
+                Q
+              </a>
+            </h4>
+          </div>
+          <div id="collapseQ" class="panel-collapse collapse">
+            <div class="panel-body">
+              <br/>
+              <% if @comedians["Q"] %>
+                <% @comedians["Q"].each do |comedian| %>
+                  <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
+                <% end %>
+              <% else %>
+                <p> No comedians starting with this letter </p>
+              <% end %>
+              <br/>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseR">
+                R
+              </a>
+            </h4>
+          </div>
+          <div id="collapseR" class="panel-collapse collapse">
+            <div class="panel-body">
+              <br/>
+              <% if @comedians["R"] %>
+                <% @comedians["R"].each do |comedian| %>
+                  <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
+                <% end %>
+              <% else %>
+                <p> No comedians starting with this letter </p>
+              <% end %>
+              <br/>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseS">
+                S
+              </a>
+            </h4>
+          </div>
+          <div id="collapseS" class="panel-collapse collapse">
+            <div class="panel-body">
+              <br/>
+              <% if @comedians["S"] %>
+                <% @comedians["S"].each do |comedian| %>
+                  <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
+                <% end %>
+              <% else %>
+                <p> No comedians starting with this letter </p>
+              <% end %>
+              <br/>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseT">
+                T
+              </a>
+            </h4>
+          </div>
+          <div id="collapseT" class="panel-collapse collapse">
+            <div class="panel-body">
+              <br/>
+              <% if @comedians["T"] %>
+                <% @comedians["T"].each do |comedian| %>
+                  <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
+                <% end %>
+              <% else %>
+                <p> No comedians starting with this letter </p>
+              <% end %>
+              <br/>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseU">
+                U
+              </a>
+            </h4>
+          </div>
+          <div id="collapseU" class="panel-collapse collapse">
+            <div class="panel-body">
+              <br/>
+              <% if @comedians["U"] %>
+                <% @comedians["U"].each do |comedian| %>
+                  <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
+                <% end %>
+              <% else %>
+                <p> No comedians starting with this letter </p>
+              <% end %>
+              <br/>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseV">
+                V
+              </a>
+            </h4>
+          </div>
+          <div id="collapseV" class="panel-collapse collapse">
+            <div class="panel-body">
+              <br/>
+              <% if @comedians["V"] %>
+                <% @comedians["V"].each do |comedian| %>
+                  <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
+                <% end %>
+              <% else %>
+                <p> No comedians starting with this letter </p>
+              <% end %>
+              <br/>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseW">
+                W
+              </a>
+            </h4>
+          </div>
+          <div id="collapseW" class="panel-collapse collapse">
+            <div class="panel-body">
+              <br/>
+              <% if @comedians["W"] %>
+                <% @comedians["W"].each do |comedian| %>
+                  <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
+                <% end %>
+              <% else %>
+                <p> No comedians starting with this letter </p>
+              <% end %>
+              <br/>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseX">
+                X
+              </a>
+            </h4>
+          </div>
+          <div id="collapseX" class="panel-collapse collapse">
+            <div class="panel-body">
+              <br/>
+              <% if @comedians["X"] %>
+                <% @comedians["X"].each do |comedian| %>
+                  <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
+                <% end %>
+              <% else %>
+                <p> No comedians starting with this letter </p>
+              <% end %>
+              <br/>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseY">
+                Y
+              </a>
+            </h4>
+          </div>
+          <div id="collapseY" class="panel-collapse collapse">
+            <div class="panel-body">
+              <br/>
+              <% if @comedians["Y"] %>
+                <% @comedians["Y"].each do |comedian| %>
+                  <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
+                <% end %>
+              <% else %>
+                <p> No comedians starting with this letter </p>
+              <% end %>
+              <br/>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseZ">
+                Z
+              </a>
+            </h4>
+          </div>
+          <div id="collapseZ" class="panel-collapse collapse">
+            <div class="panel-body">
+              <br/>
+              <% if @comedians["Z"] %>
+                <% @comedians["Z"].each do |comedian| %>
+                  <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
+                <% end %>
+              <% else %>
+                <p> No comedians starting with this letter </p>
+              <% end %>
+              <br/>
+            </div>
+          </div>
+        </div>
+
+
+
+
+      </div>
+
+
+
+
+
+
+
+
     </div>
-    <div class="tab-pane" id="b">
-      <br/>
-      <% if @comedians["B"] %>
-        <% @comedians["B"].each do |comedian| %>
-          <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
-        <% end %>
-      <% else %>
-        <p> No comedians starting with this letter </p>
-      <% end %>
-      <br/>
-    </div>
-    <div class="tab-pane" id="c">
-      <br/>
-      <% if @comedians["C"] %>
-        <% @comedians["C"].each do |comedian| %>
-          <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
-        <% end %>
-      <% else %>
-        <p> No comedians starting with this letter </p>
-      <% end %>
-      <br/>
-    </div>
-    <div class="tab-pane" id="d">
-      <br/>
-      <% if @comedians["D"] %>
-        <% @comedians["D"].each do |comedian| %>
-          <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
-        <% end %>
-      <% else %>
-        <p> No comedians starting with this letter </p>
-      <% end %>
-      <br/>
-    </div>
-    <div class="tab-pane" id="e">
-      <br/>
-      <% if @comedians["E"] %>
-        <% @comedians["E"].each do |comedian| %>
-          <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
-        <% end %>
-      <% else %>
-        <p> No comedians starting with this letter </p>
-      <% end %>
-      <br/>
-    </div>
-    <div class="tab-pane" id="f">
-      <br/>
-      <% if @comedians["F"] %>
-        <% @comedians["F"].each do |comedian| %>
-          <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
-        <% end %>
-      <% else %>
-        <p> No comedians starting with this letter </p>
-      <% end %>
-      <br/>
-    </div>
-    <div class="tab-pane" id="g">
-      <br/>
-      <% if @comedians["G"] %>
-        <% @comedians["G"].each do |comedian| %>
-          <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
-        <% end %>
-      <% else %>
-        <p> No comedians starting with this letter </p>
-      <% end %>
-      <br/>
-    </div>
-    <div class="tab-pane" id="h">
-      <br/>
-      <% if @comedians["H"] %>
-        <% @comedians["H"].each do |comedian| %>
-          <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
-        <% end %>
-      <% else %>
-        <p> No comedians starting with this letter </p>
-      <% end %>
-      <br/>
-    </div>
-    <div class="tab-pane" id="i">
-      <br/>
-      <% if @comedians["I"] %>
-        <% @comedians["I"].each do |comedian| %>
-          <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
-        <% end %>
-      <% else %>
-        <p> No comedians starting with this letter </p>
-      <% end %>
-      <br/>
-    </div>
-    <div class="tab-pane" id="j">
-      <br/>
-      <% if @comedians["J"] %>
-        <% @comedians["J"].each do |comedian| %>
-          <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
-        <% end %>
-      <% else %>
-        <p> No comedians starting with this letter </p>
-      <% end %>
-      <br/>
-    </div>
-    <div class="tab-pane" id="k">
-      <br/>
-      <% if @comedians["K"] %>
-        <% @comedians["K"].each do |comedian| %>
-          <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
-        <% end %>
-      <% else %>
-        <p> No comedians starting with this letter </p>
-      <% end %>
-      <br/>
-    </div>
-    <div class="tab-pane" id="l">
-      <br/>
-      <% if @comedians["L"] %>
-        <% @comedians["L"].each do |comedian| %>
-          <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
-        <% end %>
-      <% else %>
-        <p> No comedians starting with this letter </p>
-      <% end %>
-      <br/>
-    </div>
-    <div class="tab-pane" id="m">
-      <br/>
-      <% if @comedians["M"] %>
-        <% @comedians["M"].each do |comedian| %>
-          <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
-        <% end %>
-      <% else %>
-        <p> No comedians starting with this letter </p>
-      <% end %>
-      <br/>
-    </div>
-    <div class="tab-pane" id="n">
-      <br/>
-      <% if @comedians["N"] %>
-        <% @comedians["N"].each do |comedian| %>
-          <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
-        <% end %>
-      <% else %>
-        <p> No comedians starting with this letter </p>
-      <% end %>
-      <br/>
-    </div>
-    <div class="tab-pane" id="o">
-      <br/>
-      <% if @comedians["O"] %>
-        <% @comedians["O"].each do |comedian| %>
-          <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
-        <% end %>
-      <% else %>
-        <p> No comedians starting with this letter </p>
-      <% end %>
-      <br/>
-    </div>
-    <div class="tab-pane" id="p">
-      <br/>
-      <% if @comedians["P"] %>
-        <% @comedians["P"].each do |comedian| %>
-          <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
-        <% end %>
-      <% else %>
-        <p> No comedians starting with this letter </p>
-      <% end %>
-      <br/>
-    </div>
-    <div class="tab-pane" id="q">
-      <br/>
-      <% if @comedians["Q"] %>
-        <% @comedians["Q"].each do |comedian| %>
-          <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
-        <% end %>
-      <% else %>
-        <p> No comedians starting with this letter </p>
-      <% end %>
-      <br/>
-    </div>
-    <div class="tab-pane" id="r">
-      <br/>
-      <% if @comedians["R"] %>
-        <% @comedians["R"].each do |comedian| %>
-          <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
-        <% end %>
-      <% else %>
-        <p> No comedians starting with this letter </p>
-      <% end %>
-      <br/>
-    </div>
-    <div class="tab-pane" id="s">
-      <br/>
-      <% if @comedians["S"] %>
-        <% @comedians["S"].each do |comedian| %>
-          <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
-        <% end %>
-      <% else %>
-        <p> No comedians starting with this letter </p>
-      <% end %>
-      <br/>
-    </div>
-    <div class="tab-pane" id="t">
-      <br/>
-      <% if @comedians["T"] %>
-        <% @comedians["T"].each do |comedian| %>
-          <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
-        <% end %>
-      <% else %>
-        <p> No comedians starting with this letter </p>
-      <% end %>
-      <br/>
-    </div>
-    <div class="tab-pane" id="u">
-      <br/>
-      <% if @comedians["U"] %>
-        <% @comedians["U"].each do |comedian| %>
-          <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
-        <% end %>
-      <% else %>
-        <p> No comedians starting with this letter </p>
-      <% end %>
-      <br/>
-    </div>
-    <div class="tab-pane" id="v">
-      <br/>
-      <% if @comedians["V"] %>
-        <% @comedians["V"].each do |comedian| %>
-          <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
-        <% end %>
-      <% else %>
-        <p> No comedians starting with this letter </p>
-      <% end %>
-      <br/>
-    </div>
-    <div class="tab-pane" id="w">
-      <br/>
-      <% if @comedians["W"] %>
-        <% @comedians["W"].each do |comedian| %>
-          <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
-        <% end %>
-      <% else %>
-        <p> No comedians starting with this letter </p>
-      <% end %>
-      <br/>
-    </div>
-    <div class="tab-pane" id="x">
-      <br/>
-      <% if @comedians["X"] %>
-        <% @comedians["X"].each do |comedian| %>
-          <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
-        <% end %>
-      <% else %>
-        <p> No comedians starting with this letter </p>
-      <% end %>
-      <br/>
-    </div>
-    <div class="tab-pane" id="y">
-      <br/>
-      <% if @comedians["Y"] %>
-        <% @comedians["Y"].each do |comedian| %>
-          <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
-        <% end %>
-      <% else %>
-        <p> No comedians starting with this letter </p>
-      <% end %>
-      <br/>
-    </div>
-    <div class="tab-pane" id="z">
-      <br/>
-      <% if @comedians["Z"] %>
-        <% @comedians["Z"].each do |comedian| %>
-          <p><a href="/comedians/<%=comedian.id%>"><%= comedian.name %></a></p>
-        <% end %>
-      <% else %>
-        <p> No comedians starting with this letter </p>
-      <% end %>
-      <br/>
-    </div>
-  </div>
+
+
+
+
+
+
+
+ </div>
+
 
 
 
 
 </div>
+
+

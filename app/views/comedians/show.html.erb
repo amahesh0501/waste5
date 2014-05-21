@@ -1,24 +1,57 @@
-<script src="http://www.youtube.com/iframe_api"></script>
+<div class="page-container"><!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
+  <%= render 'layouts/sidebar' %>
 
-<div class="show_video_page">
-  <center>
-  <iframe id="explore_js" width="100%" height="700" src="https://www.youtube.com/embed/<%=@video_id%>?enablejsapi=1&autoplay=1&autohide=1&showinfo=0" frameborder="0" class="explore_embed" allowfullscreen></iframe>
-  </center>
-  <div class="row video_information">
+
+
+  <div class="main-content">
+
+   <%= render 'layouts/navbar' %>
+
+   <script src="http://www.youtube.com/iframe_api"></script>
+
+   <div class="show_video_page">
+    <br/><br/><br/><br/>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-8">
+       <iframe id="explore_js" height="400" width="700" src="https://www.youtube.com/embed/<%=@video_id%>?enablejsapi=1&autoplay=1&autohide=1&showinfo=0" frameborder="0" class="explore_embed" allowfullscreen></iframe>
+     </div>
+     <div class="col-md-1"></div>
+   </div>
+
+
+   <div class="row video_information">
     <div class="col-md-1"></div>
     <div class="col-md-8">
       <h3><%= @post.title %></h3>
       <% if @post.date %>
-        <p>Posted on <%= @post.date.strftime("%m/%d/%Y") %></p>
+      <p>Posted on <%= @post.date.strftime("%m/%d/%Y") %></p>
+
       <% end %>
-      <p><%= link_to "Skip and report as not standup", {:controller => "reports", :action => "report", :post_to_report => @post.id }%></p>
+      <p class="report"><%= link_to "Report Video", {:controller => "reports", :action => "report", :post_to_report => @post.id }%></p>
     </div>
     <div class="col-md-2">
-      <%= button_to "Next Video", comedian_path(@comedian, :autoplay => 1), :method => :get, class: "next-video-button-below" %>
+     <br/><br/>
+     <%= button_to "Next Video", comedian_path(@comedian, :autoplay => 1), :method => :get, class: "btn btn-success" %>
 
 
-    </div>
-    <div class="col-md-1"></div>
-  </div>
+   </div>
+   <div class="col-md-1"></div>
+ </div>
+
+
 
 </div>
+
+
+
+
+
+</div>
+
+
+
+
+
+</div>
+

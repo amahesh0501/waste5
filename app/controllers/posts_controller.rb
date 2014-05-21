@@ -27,7 +27,7 @@ class PostsController < ApplicationController
     else
       posts = Post.all
     end
-
+    posts = Post.all
     @post = posts.sample
     @video_id = @post.youtube_id
     @next_post = posts.sample
