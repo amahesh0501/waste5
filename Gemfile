@@ -16,7 +16,6 @@ gem "youtube_it", "~> 2.4.0"
 gem 'pg_search'
 gem 'rails_12factor'
 
-gem 'bootstrap-sass', '2.0.1'
 
 
 # Gems used only for assets and not required
