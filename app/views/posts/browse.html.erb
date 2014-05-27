@@ -11,40 +11,27 @@
 
 
 
-  <div class="main-content">
-
-   <%= render 'layouts/navbar' %>
-
-
-   <div class="show_video_page">
-    <br/>
-    <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-8">
-       <iframe src="https://www.youtube.com/embed/<%=@video_id%>?enablejsapi=1&autoplay=1&autohide=1&showinfo=0" frameborder="0" class="explore_embed" allowfullscreen></iframe>
-     </div>
-     <div class="col-md-1"></div>
-   </div>
+  <div id="page-wrapper">
 
 
 
-   <div class="row video_information">
-     <div class="col-md-1"></div>
-     <div class="col-md-8">
+
+
+
+
+   <div class="row">
+    <iframe src="https://www.youtube.com/embed/<%=@video_id%>?enablejsapi=1&autoplay=1&autohide=1&showinfo=0" frameborder="0" class="explore_embed" allowfullscreen></iframe>
        <h3><%= @post.title %></h3>
        <% if @post.date %>
        <p>Posted on <%= @post.date.strftime("%m/%d/%Y") %></p>
 
        <% end %>
        <p class="report"><%= link_to "Report Video", {:controller => "reports", :action => "report", :post_to_report => @post.id }%></p>
-     </div>
-     <div class="col-md-2">
-      <br/><br/>
+
+
       <%= button_to "Next Video", post_path(@next_post, :autoplay => 1), :method => :get, class: "btn btn-success next_video" %>
 
 
-    </div>
-    <div class="col-md-1"></div>
   </div>
 
 </div>

@@ -1,7 +1,11 @@
 class ComediansController < ApplicationController
 
   def index
-    @comedians = Comedian.all.group_by{|u| u.name[0]}
+    @comedians = []
+    @all_comedians = Comedian.all
+    @all_comedians.each {|comedian| @comedians << comedian if comedian.posts.length > 0}
+
+    @comedians = @comedians.group_by{|u| u.name[0]}
   end
 
   def show

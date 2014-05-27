@@ -1,6 +1,5 @@
 
       <!-- Sidebar -->
-      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -9,30 +8,40 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">SB Admin</a>
+          <a class="navbar-brand" href="/"><span class="wlogo">W</span><b>5</b></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse left-nav">
           <ul class="nav navbar-nav side-nav">
-            <li><a href="index.html"><i class="entypo-gauge"></i>Dashboard</a></li>
 
-            <li><a href="bootstrap-elements.html"><i class="fa fa-desktop"></i> Bootstrap Elements</a></li>
-            <li><a href="bootstrap-grid.html"><i class="fa fa-wrench"></i> Bootstrap Grid</a></li>
+            <div class="sidebar_logo_div"><a href="/" class="sidebar_logo"><span class="wlogo">W</span><b>5</b></a></div>
+
+            <li><a href="/" class="sidebar_link"><i class="fa fa-youtube-play"></i>    Browse Videos</a></li>
+            <li><a href="/comedians" class="sidebar_link"><i class="fa fa-users"></i>  Comedians</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-caret-square-o-down"></i> Dropdown <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle sidebar_link" data-toggle="dropdown"><i class="fa fa-clock-o"></i>  Filter by Time <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Dropdown Item</a></li>
-                <li><a href="#">Another Item</a></li>
-                <li><a href="#">Third Item</a></li>
-                <li><a href="#">Last Item</a></li>
+                <li><a href="/short" class="sidebar_link" >Less than 5 Minutes</a></li>
+                <li><a href="/medium" class="sidebar_link">5-30 Minutes</a></li>
+                <li><a href="/long" class="sidebar_link">More than 30 Minutes</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle sidebar_link" data-toggle="dropdown"><i class="fa fa-archive"></i>  Filter by Category <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="/black" class="sidebar_link">African American</a></li>
+                <li><a href="/asian" class="sidebar_link">Asian</a></li>
+                <li><a href="/latino" class="sidebar_link">Latino</a></li>
+                <li><a href="/mei" class="sidebar_link">Middle Eastern / Indian</a></li>
+                <li><a href="/white" class="sidebar_link">White</a></li>
+                <br/>
               </ul>
             </li>
           </ul>
 
 
         </div><!-- /.navbar-collapse -->
-      </nav>
 
 
 
