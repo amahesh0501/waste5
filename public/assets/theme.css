@@ -21,6 +21,11 @@
   margin-top: -35px !important;
   }
 
+  .pannel-group{
+    padding-right: 15px;
+
+  }
+
 
 
 
@@ -111,12 +116,32 @@
     padding-right: 5px;
   }
 
+  .btn-green{
+    color: white !important;
+    background-color: #00a651 !important;
+    border-radius: 3px !important;
+  }
+
 
 
 
 }
 
+@media (max-width:450px) {
+  .btn-green{
+    width: 100% !important;
+  }
+
+}
+
+
 @media (max-width:768px) {
+
+  .vid-description {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
   .explore_embed{
     height: 300px;
     width: 100%;
@@ -128,6 +153,12 @@
 
   .sidebar_logo{
     visibility: hidden;
+  }
+
+  .btn-green{
+    color: white !important;
+    background-color: #00a651 !important;
+    border-radius: 3px !important;
   }
 
 
@@ -168,4 +199,16 @@
 .panel-heading:hover{
   color: white !important;
   text-decoration: none;
+}
+
+.sub-sidebar{
+  margin-left: 20px;
+}
+
+.sub-sidebar:hover{
+  color: black !important;
+}
+
+.report-vid{
+  font-size: 14px;
 }

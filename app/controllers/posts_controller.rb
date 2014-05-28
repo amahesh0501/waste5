@@ -8,26 +8,36 @@ class PostsController < ApplicationController
   def browse
     if session[:type] == "short"
       posts = Post.where("duration < ?", 300)
+      @time = "short"
     elsif session[:type] == "medium"
       posts = Post.where("duration < ? AND duration > ?", 1800, 299 )
+      @time = "medium"
     elsif session[:type] == "long"
       posts = Post.where("duration > ?", 1799)
+      @time = "long"
     elsif session[:type] == "african_american"
       posts = Post.where("category = ?", "black" || "black woman")
+      @cat = "african_american"
     elsif session[:type] == "white"
       posts = Post.where("category = ?", "white" || "white woman")
+      @cat = "white"
     elsif session[:type] == "mei"
       posts = Post.where("category = ?", "mei" || "mei woman")
+      @cat = "mei"
     elsif session[:type] == "latino"
       posts = Post.where("category = ?", "latino" || "latino woman")
+      @cat = "latino"
     elsif session[:type] == "asian"
       posts = Post.where("category = ?", "asian" || "asian woman")
+      @cat = "asian"
     elsif session[:type] == "all"
       posts = Post.all
     else
       posts = Post.all
     end
-    posts = Post.all
+
+
+
     @post = posts.sample
     @video_id = @post.youtube_id
     @next_post = posts.sample

@@ -1,45 +1,48 @@
+
+
+
+<script src="http://www.youtube.com/iframe_api"></script>
+
+
+
+
 <div class="page-container"><!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
+
   <%= render 'layouts/sidebar' %>
 
 
 
   <div id="page-wrapper">
 
-   <%= render 'layouts/navbar' %>
-
-   <script src="http://www.youtube.com/iframe_api"></script>
-
-   <div class="show_video_page">
-    <br/><br/><br/><br/>
-    <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-8">
-       <iframe id="explore_js" height="400" width="700" src="https://www.youtube.com/embed/<%=@video_id%>?enablejsapi=1&autoplay=1&autohide=1&showinfo=0" frameborder="0" class="explore_embed" allowfullscreen></iframe>
-     </div>
-     <div class="col-md-1"></div>
-   </div>
 
 
-   <div class="row video_information">
-    <div class="col-md-1"></div>
-    <div class="col-md-8">
-      <h3><%= @post.title %></h3>
-      <% if @post.date %>
-      <p>Posted on <%= @post.date.strftime("%m/%d/%Y") %></p>
-
-      <% end %>
-      <p class="report"><%= link_to "Report Video", {:controller => "reports", :action => "report", :post_to_report => @post.id }%></p>
-    </div>
-    <div class="col-md-2">
-     <br/><br/>
-     <%= button_to "Next Video", comedian_path(@comedian, :autoplay => 1), :method => :get, class: "btn btn-success next_video" %>
 
 
-   </div>
-   <div class="col-md-1"></div>
- </div>
 
 
+   <div class="row">
+    <iframe src="https://www.youtube.com/embed/<%=@video_id%>?enablejsapi=1&autoplay=1&autohide=1&showinfo=0" frameborder="0" class="explore_embed" allowfullscreen></iframe>
+    <div class="vid-description">
+        <h3>
+         <%= @post.title %>
+         <%= link_to "<i class='fa fa-flag report-vid' title='Report this video'></i>".html_safe, {:controller => "reports", :action => "report", :post_to_report => @post.id } %>
+
+       </h3>
+       <% if @post.date %>
+       <p>Posted on <%= @post.date.strftime("%m/%d/%Y") %></p>
+
+
+       <% end %>
+
+       <p><iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.waste5.com%2Fposts%2F<%=@post.id%>&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21&amp;appId=311642788912956" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe></p>
+
+
+
+       <%= button_to "Next Video", comedian_path(@comedian, :autoplay => 1), :method => :get, class: "btn btn-green next_video" %>
+      </div>
+
+
+  </div>
 
 </div>
 
@@ -48,10 +51,9 @@
 
 
 </div>
-
-
-
-
-
 </div>
+
+
+
+
 
