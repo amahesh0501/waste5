@@ -1,5 +1,11 @@
 <div class="container">
-<br/>
+<br/><br/>
+<% if current_user %>
+  <a href="/users/edit">Edit User Profile</a> | <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+<% end %>
+
+<br/><br/>
+
   <ul class="nav nav-tabs">
     <li class="active" ><a href="#reports" data-toggle="tab">Reports</a></li>
     <li><a href="#no_comedian" data-toggle="tab">Posts with No Comedian</a></li>
@@ -10,26 +16,29 @@
   <!-- Tab panes -->
   <div class="tab-content">
     <div class="tab-pane active" id="reports">
-      <br/>
-      <table class="table table-striped">
-        <% @reports.each do |report| %>
-          <tr>
-            <td><%= link_to report.post_to_report, post_path(report.post_to_report)  %></td>
-            <td><%= link_to "Delete ", post_path(report.post_to_report), :method => 'delete' %></td>
-          </tr>
-        <% end %>
-      </table>
-    </div>
-    <div class="tab-pane" id="no_comedian">
-      <br/>
-      <table class="table table-striped">
-        <% @no_comedian_posts.each do |post| %>
-          <tr>
-            <td><%= link_to post.name, edit_post_path(post.id)  %></td>
-          </tr>
-        <% end %>
-      </table>
-      <br/>
+        <br/>
+        <table class="table table-striped">
+          <% @reports.each do |report| %>
+            <% if report.post_to_report %>
+              <% post = Post.find(report.post_to_report) %>
+              <tr>
+                <td><%= link_to report.post_to_report, post_path(post) %></td>
+                <td><%= link_to "Delete Post", post_path(post), :method => 'delete' %> | <%= link_to "Dismiss Report", report_path(report), :method => 'delete' %>  </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </table>
+      </div>
+      <div class="tab-pane" id="no_comedian">
+        <br/>
+        <table class="table table-striped">
+          <% @no_comedian_posts.each do |post| %>
+            <tr>
+              <td><%= link_to post.name, edit_post_path(post.id)  %></td>
+            </tr>
+          <% end %>
+        </table>
+        <br/>
     </div>
     <div class="tab-pane" id="all_comedians">
       <br/>

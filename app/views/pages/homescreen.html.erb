@@ -1,0 +1,95 @@
+<div class="page-container"><!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
+  <%= render 'layouts/sidebar' %>
+  <div id="page-wrapper">
+   <br/>
+   <div class="row">
+    <div class="col-md-11">
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#ios" data-toggle="tab"><i class='fa fa-apple'></i> iOS</a></li>
+        <li><a href="#android" data-toggle="tab"><i class='fa fa-android'></i> Android</a></li>
+      </ul>
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div class="tab-pane active" id="ios">
+          <br/>
+          <div class="panel-group" id="accordion">
+
+            <div class="panel panel-default">
+              <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseOne">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                    Safari
+                </h4>
+              </div>
+              </a>
+              <div id="collapseOne" class="panel-collapse collapse in">
+                <div class="panel-body">
+                  <p>Apple only allows users to add websites to their homescreen using the Safari browser. To add Waste5 to your homescreen:</p>
+                  <ol>
+                    <li>Visit our <%= link_to "home page", root_path %></li>
+                    <li>Tap <img width="10" height="14" src="http://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/1Tips-icons/II062-share_icon_2x.png" alt=""> , then tap Add to Home Screen</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+
+
+
+
+          </div>
+        </div>
+        <div class="tab-pane" id="android">
+          <br/>
+          <div class="panel-group" id="accordion">
+
+            <div class="panel panel-default">
+              <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseOne">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                    Google Chrome
+                </h4>
+              </div>
+              </a>
+              <div id="collapseOne" class="panel-collapse collapse in">
+                <div class="panel-body">
+                  <p>To add Waste5 to your homescreen:</p>
+                  <ol>
+                    <li>Visit our <%= link_to "home page", root_path %></li>
+                    <li>Tap  <i class='fa fa-ellipsis-v '></i>, then tap Add to homescreen</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseTwo">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                    Mozilla Firefox
+                </h4>
+              </div>
+              </a>
+              <div id="collapseTwo" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <p>To add Waste5 to your homescreen:</p>
+                  <ol>
+                    <li>Visit our <%= link_to "home page", root_path %></li>
+                    <li>Tap  <i class='fa fa-ellipsis-v '></i>, then tap <i class='fa fa-star-o'></i> </li>
+                    <li>In the "Bookmark added" popup, tap the "Options" button, then tap "Add to Home Screen"</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+

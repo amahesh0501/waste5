@@ -20,30 +20,138 @@
 
 
    <div class="row">
-    <iframe src="https://www.youtube.com/embed/<%=@video_id%>?enablejsapi=1&autoplay=1&autohide=1&showinfo=0" frameborder="0" class="explore_embed" allowfullscreen></iframe>
+    <iframe id="explore_js" src="https://www.youtube.com/embed/<%=@video_id%>?enablejsapi=1&autoplay=1&autohide=1&showinfo=0" frameborder="0" class="explore_embed" allowfullscreen></iframe>
     <div class="vid-description">
-       <h3>
-        <%= @post.title %>
-        <%= link_to "<i class='fa fa-flag report-vid' title='Report this video'></i>".html_safe, {:controller => "reports", :action => "report", :post_to_report => @post.id } %>
 
-      </h3>
-       <% if @post.date %>
-       <p>
-          Posted on <%= @post.date.strftime("%m/%d/%Y") %>
-       </p>
+     <h3>
 
-       <% end %>
+      <%= @post.title %>
+      <%= link_to "<i class='fa fa-flag report-vid' title='Report this video'></i>".html_safe, {:controller => "reports", :action => "report", :post_to_report => @post.id } %>
 
-       <p><iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.waste5.com%2Fposts%2F<%=@post.id%>&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21&amp;appId=311642788912956" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe></p>
+    </h3>
+
+    <p><iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.waste5.com%2Fposts%2F<%=@post.id%>&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21&amp;appId=311642788912956" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe></p>
 
 
 
-      <%= button_to "Next Video", post_path(@next_post, :autoplay => 1), :method => :get, class: "btn btn-green next_video" %>
 
+
+
+    <%= button_to "Next Video", post_path(@next_post, :autoplay => 1), :method => :get, class: "btn btn-green next_video" %>
+
+
+
+    <div class="panel-group homescreen_group" id="accordion">
+
+      <div class="panel panel-default homescreen_panel">
+        <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseTwo">
+          <div class="panel-heading homescreen_heading">
+            <p class="panel-title homescreen_title">
+              <span class="homescreen_text"><i class='fa fa-phone'></i> Add to Homescreen</span>
+            </p>
+          </div>
+        </a>
+        <div id="collapseTwo" class="panel-collapse collapse">
+          <div class="panel-body">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#ios" data-toggle="tab"><i class='fa fa-apple'></i> iOS</a></li>
+              <li><a href="#android" data-toggle="tab"><i class='fa fa-android'></i> Android</a></li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div class="tab-pane active" id="ios">
+                <br/>
+                <div class="panel-group" id="accordion">
+
+                  <div class="panel panel-default">
+                    <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseOne">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          Safari
+                        </h4>
+                      </div>
+                    </a>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                      <div class="panel-body">
+                        <ol>
+                          <li>Tap <img width="10" height="14" src="http://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/1Tips-icons/II062-share_icon_2x.png" alt=""> , then tap Add to Home Screen.</li>
+                        </ol>
+
+                      </div>
+                    </div>
+                  </div>
+
+
+
+
+                </div>
+              </div>
+              <div class="tab-pane" id="android">
+                <br/>
+                <div class="panel-group" id="accordion">
+
+                  <div class="panel panel-default">
+                    <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseOne">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          Google Chrome
+                        </h4>
+                      </div>
+                    </a>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                      <div class="panel-body">
+                        <ol>
+                          <li>Tap  <i class='fa fa-ellipsis-v'></i>, then tap Add to homescreen</li>
+                        </ol>
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="panel panel-default">
+                    <a data-toggle="collapse" data-parent="#accordion-test" href="#collapsefirefox">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          Mozilla Firefox
+                        </h4>
+                      </div>
+                    </a>
+                    <div id="collapsefirefox" class="panel-collapse collapse in">
+                      <div class="panel-body">
+                        <ol>
+                          <li>Tap  <i class='fa fa-ellipsis-v '></i>, then tap <i class='fa fa-star-o'></i>. </li>
+                          <li>In the "Bookmark added" popup, tap the "Options" button, then tap "Add to Home Screen".</li>
+                        </ol>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
 
 
-  </div>
+
+
+
+
+
+
+
+
+  <br/>
+
+</div>
+
+
+</div>
 
 </div>
 

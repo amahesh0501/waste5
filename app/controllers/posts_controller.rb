@@ -15,21 +15,21 @@ class PostsController < ApplicationController
     elsif session[:type] == "long"
       posts = Post.where("duration > ?", 1799)
       @time = "long"
-    elsif session[:type] == "african_american"
-      posts = Post.where("category = ?", "black" || "black woman")
-      @cat = "african_american"
-    elsif session[:type] == "white"
-      posts = Post.where("category = ?", "white" || "white woman")
-      @cat = "white"
-    elsif session[:type] == "mei"
-      posts = Post.where("category = ?", "mei" || "mei woman")
-      @cat = "mei"
-    elsif session[:type] == "latino"
-      posts = Post.where("category = ?", "latino" || "latino woman")
-      @cat = "latino"
-    elsif session[:type] == "asian"
-      posts = Post.where("category = ?", "asian" || "asian woman")
-      @cat = "asian"
+    # elsif session[:type] == "african_american"
+    #   posts = Post.where("category = ?", "black" || "black woman")
+    #   @cat = "african_american"
+    # elsif session[:type] == "white"
+    #   posts = Post.where("category = ?", "white" || "white woman")
+    #   @cat = "white"
+    # elsif session[:type] == "mei"
+    #   posts = Post.where("category = ?", "mei" || "mei woman")
+    #   @cat = "mei"
+    # elsif session[:type] == "latino"
+    #   posts = Post.where("category = ?", "latino" || "latino woman")
+    #   @cat = "latino"
+    # elsif session[:type] == "asian"
+    #   posts = Post.where("category = ?", "asian" || "asian woman")
+    #   @cat = "asian"
     elsif session[:type] == "all"
       posts = Post.all
     else
@@ -55,16 +55,16 @@ class PostsController < ApplicationController
       posts = Post.where("duration < ? AND duration > ?", 1800, 299 )
     elsif session[:type] == "long"
       posts = Post.where("duration > ?", 1799)
-    elsif session[:type] == "african_american"
-      posts = Post.where("category = ?", "black" || "black woman")
-    elsif session[:type] == "white"
-      posts = Post.where("category = ?", "white" || "white woman")
-    elsif session[:type] == "mei"
-      posts = Post.where("category = ?", "mei" || "mei woman")
-    elsif session[:type] == "latino"
-      posts = Post.where("category = ?", "latino" || "latino woman")
-    elsif session[:type] == "asian"
-      posts = Post.where("category = ?", "asian" || "asian woman")
+    # elsif session[:type] == "african_american"
+    #   posts = Post.where("category = ?", "black" || "black woman")
+    # elsif session[:type] == "white"
+    #   posts = Post.where("category = ?", "white" || "white woman")
+    # elsif session[:type] == "mei"
+    #   posts = Post.where("category = ?", "mei" || "mei woman")
+    # elsif session[:type] == "latino"
+    #   posts = Post.where("category = ?", "latino" || "latino woman")
+    # elsif session[:type] == "asian"
+    #   posts = Post.where("category = ?", "asian" || "asian woman")
     elsif session[:type] == "all"
       posts = Post.all
     else
@@ -107,10 +107,12 @@ class PostsController < ApplicationController
   def destroy
     admin_only
     post = Post.find(params[:id])
-    post.destroy
-
     reports = Report.find_all_by_post_to_report(params[:id])
     reports.each {|report| report.destroy}
+
+    post.destroy
+
+
 
     redirect_to admin_path
   end

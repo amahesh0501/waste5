@@ -30,37 +30,40 @@ class PagesController < ApplicationController
     redirect_to root_path
   end
 
-  def african_american
-    session[:type] = "african_american"
-    redirect_to root_path
-  end
+  # def african_american
+  #   session[:type] = "african_american"
+  #   redirect_to root_path
+  # end
 
-  def white
-    session[:type] = "white"
-    redirect_to root_path
-  end
+  # def white
+  #   session[:type] = "white"
+  #   redirect_to root_path
+  # end
 
-  def mei
-    session[:type] = "mei"
-    redirect_to root_path
-  end
+  # def mei
+  #   session[:type] = "mei"
+  #   redirect_to root_path
+  # end
 
-  def women
-    session[:type] = "women"
-    redirect_to root_path
-  end
+  # def women
+  #   session[:type] = "women"
+  #   redirect_to root_path
+  # end
 
-  def asian
-    session[:type] = "asian"
-    redirect_to root_path
-  end
+  # def asian
+  #   session[:type] = "asian"
+  #   redirect_to root_path
+  # end
 
-  def latino
-    session[:type] = "latino"
-    redirect_to root_path
-  end
+  # def latino
+  #   session[:type] = "latino"
+  #   redirect_to root_path
+  # end
 
   def test
+  end
+
+  def homescreen
   end
 
 

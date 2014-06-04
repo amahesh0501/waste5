@@ -6,8 +6,10 @@ Waste5::Application.routes.draw do
 
   resources :posts
   resources :comedians
+  resources :reports
 
   match '/admin', :to => 'pages#admin'
+  match '/homescreen', :to => 'pages#homescreen'
 
   match '/search', :to => 'posts#search'
   match '/report', :to => 'reports#report'
@@ -17,11 +19,11 @@ Waste5::Application.routes.draw do
   match '/short', :to => 'pages#short'
   match '/medium', :to => 'pages#medium'
   match '/long', :to => 'pages#long'
-  match '/african_american', :to => 'pages#african_american'
-  match '/white', :to => 'pages#white'
-  match '/mei', :to => 'pages#mei'
-  match '/asian', :to => 'pages#asian'
-  match '/latino', :to => 'pages#latino'
+  # match '/african_american', :to => 'pages#african_american'
+  # match '/white', :to => 'pages#white'
+  # match '/mei', :to => 'pages#mei'
+  # match '/asian', :to => 'pages#asian'
+  # match '/latino', :to => 'pages#latino'
   match '/all', :to => 'pages#all'
 
 

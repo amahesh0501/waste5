@@ -17,9 +17,9 @@
 
             <div class="sidebar_logo_div"><%= link_to "<span class='wlogo'>W</span><b>5</b>".html_safe, all_path, class: "sidebar_logo" %></div>
 
-            <li><%= link_to "<i class='fa fa-youtube-play'></i>Browse All Videos".html_safe, all_path, class: "sidebar_link" %></li>
-            <li><a href="/comedians" class="sidebar_link"><i class="fa fa-users"></i>  Comedians</a></li>
-            <li class="dropdown">
+            <li class="side-nav-border"><%= link_to "<i class='fa fa-youtube-play'></i>Browse All Videos".html_safe, all_path, class: "sidebar_link" %></li>
+            <li class="side-nav-border"><a href="/comedians" class="sidebar_link"><i class="fa fa-users"></i>  Comedians</a></li>
+            <li class="dropdown side-nav-border side-nav-border-last">
               <a href="#" class="dropdown-toggle sidebar_link" data-toggle="dropdown"><i class="fa fa-clock-o"></i>  Filter by Time <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="/short" class="sidebar_link sub-sidebar" >Less than 5 Minutes</a></li>
@@ -27,17 +27,8 @@
                 <li><a href="/long" class="sidebar_link sub-sidebar">More than 30 Minutes</a></li>
               </ul>
             </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle sidebar_link" data-toggle="dropdown"><i class="fa fa-archive"></i>  Filter by Category <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="/african_american" class="sidebar_link sub-sidebar">African American</a></li>
-                <li><a href="/asian" class="sidebar_link sub-sidebar">Asian</a></li>
-                <li><a href="/latino" class="sidebar_link sub-sidebar">Latino</a></li>
-                <li><a href="/mei" class="sidebar_link sub-sidebar">Middle Eastern / Indian</a></li>
-                <li><a href="/white" class="sidebar_link sub-sidebar">White</a></li>
-                <br/>
-              </ul>
-            </li>
+            <li class="side-nav-border mobile_bookmark"><%= link_to "<i class='fa fa-phone'></i> Add to Homescreen".html_safe, homescreen_path, class: "sidebar_link" %></li>
+
           </ul>
 
 
