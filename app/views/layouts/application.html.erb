@@ -40,6 +40,9 @@
     });
   </script>
 
+  <% if @post %>
+    <meta property="og:title" content="<%=@post.title%>">
+  <% end %>
 
 
 
