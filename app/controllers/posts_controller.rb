@@ -57,7 +57,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comedian = Comedian.find(@post.comedian_id) if @post.comedian_id
     @video_id = @post.youtube_id
-    @next_post = posts.sample
+    @next_post = Post.find(@post.id + 1)
     params[:autoplay] ? @autoplay = 1 : @autoplay = 0
   end
 
