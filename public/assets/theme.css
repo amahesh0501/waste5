@@ -308,3 +308,16 @@ body{
 }
 
 
+
+p, h3, h2, li, .btn, .sub-sidebar, a{
+  font-family: 'Open Sans', sans-serif !important;
+  font-weight: lighter;
+}
+
+body{
+  font-family: 'Open Sans', sans-serif !important;
+  font-weight: lighter;
+}
+
+
+
