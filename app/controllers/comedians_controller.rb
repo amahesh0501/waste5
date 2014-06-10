@@ -22,7 +22,7 @@ class ComediansController < ApplicationController
     admin_only
     @comedian = Comedian.new(params[:comedian])
     if @comedian.save
-      redirect_to admin_path
+      redirect_to comedian_path(@comedian)
     else
       flash.now[:errors] = @comedian.errors.full_messages
       render :new
@@ -36,6 +36,8 @@ class ComediansController < ApplicationController
 
   def update
     admin_only
+    @comedian = Comedian.find(params[:id])
+    redirect_to comedian_path(@comedian)
   end
 
   def destroy

@@ -104,7 +104,7 @@ class PostsController < ApplicationController
       post = Post.new(youtube_id: yt_vid_key, title: title, description: description, date: uploaded_at, view_count: view_count, duration: duration, comedian_id: params[:post][:comedian_id], image_url: image_url)
       post.save
     end
-    redirect_to admin_path
+    redirect_to root_path
 
     
 
@@ -120,11 +120,12 @@ class PostsController < ApplicationController
     admin_only
     post = Post.find(params[:id])
     if post.update_attributes(params[:post])
-      redirect_to admin_path
+      redirect_to post_path(post)
     else
       flash.now[:errors] = @question.errors.full_messages
       erb :edit
     end
+
   end
 
   def destroy
@@ -137,7 +138,7 @@ class PostsController < ApplicationController
 
 
 
-    redirect_to admin_path
+    redirect_to root_path
   end
 
  
