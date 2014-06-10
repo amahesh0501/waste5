@@ -1,24 +1,77 @@
 <div class="container">
 <br/><br/>
 <% if current_user %>
-  <a href="/users/edit">Edit User Profile</a> | <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <%= link_to "Add Post", new_post_path %> | <%= link_to "Add Comedian", new_comedian_path %> | <a href="/users/edit">Edit User Profile</a> | <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
 <% end %>
 
 
 
 <br/><br/>
 
-  <ul class="nav nav-tabs">
-    <li class="active" ><a href="#reports" data-toggle="tab">Reports</a></li>
-    <li><a href="#all_comedians" data-toggle="tab">Comedians</a></li>
-    <li><a href="#no_comedian" data-toggle="tab">No Comedian Posts</a></li>
-    <li><a href="#stats" data-toggle="tab">Stats</a></li>
 
+
+
+  <ul class="nav nav-tabs">
+    <li class="active" ><a href="#posts" data-toggle="tab">Posts</a></li>
+    <li><a href="#all_comedians" data-toggle="tab">Comedians</a></li>
+    <li><a href="#reports" data-toggle="tab">Reports</a></li>
+    <li><a href="#no_comedian" data-toggle="tab">No Comedian Posts</a></li>
   </ul>
 
   <!-- Tab panes -->
   <div class="tab-content">
-    <div class="tab-pane active" id="reports">
+    <div class="tab-pane active" id="posts">
+      <br/>
+      <p>There are <%= @posts.length %> posts from <%= @comedians.length %> comedians totaling <%= "#{number_with_precision(@hours, :delimiter => ',', precision: 2)}" %> hours of video.</p>
+      <br/>
+      <table class="table table-striped">
+        <% @posts.each do |post| %>
+          <% comedian = Comedian.find(post.comedian_id) if post.comedian_id %>
+            <tr>
+              <td><%= link_to post.id, post_path(post) %></td>
+              <td><%= link_to post.title, edit_post_path(post) %></td>
+              <td><%= link_to post.youtube_id, edit_post_path(post) %></td>
+              <td><%= link_to "#{post.duration/60} minutes", edit_post_path(post) %></td>
+              <% if comedian %>
+                <td><%= link_to comedian.name, comedian_path(comedian) %></td>
+              <% end %>
+              <td><%= link_to post.created_at.strftime("%m/%d/%Y"), post_path(post) %></td>
+            </tr>
+        <% end %>
+      </table>
+    </div>
+    <div class="tab-pane" id="all_comedians">
+      <br/>
+
+      <div class="panel-group" id="accordion-test">
+        <% count = 0 %>
+        <% @comedians.each do |comedian | %>
+        <% count = count + 1 %>
+
+        <div class="panel panel-default">
+          <a data-toggle="collapse" data-parent="#accordion-test" href="#<%=count%>">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+                <%= "#{comedian.name} (#{comedian.posts.length} posts)" %>
+            </h4>
+          </div>
+          </a>
+          <div id="<%=count%>" class="panel-collapse collapse">
+            <div class="panel-body">
+              <br/>
+                <% comedian.posts.each do |post| %>
+                <p><%= link_to post.title, edit_post_path(post) %> - <%= link_to "View Post", post_path(post) %></p>
+                <% end %>
+              <br/>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    
+      
+    </div>
+    <div class="tab-pane" id="reports">
         <br/>
         <table class="table table-striped">
           <% @reports.each do |report| %>
@@ -35,19 +88,9 @@
         <%= link_to "Destroy all reports",destroy_reports_path %>
       </div>
 
-    <div class="tab-pane" id="all_comedians">
-      <br/>
-      <table class="table table-striped">
-        <% @comedians.each do |comedian| %>
-          <tr>
-            <td><%= link_to comedian.name, comedian_path(comedian.id)  %></td>
-            <% posts = comedian.posts %>
-            <td><%= posts.length %></td>
-            <td><%= link_to "Destroy", comedian_path(comedian.id), :method => 'delete', confirm: "Are you sure?" %></td>
-          </tr>
-        <% end %>
-      </table>
-    </div>
+
+
+
       <div class="tab-pane" id="no_comedian">
         <br/>
         <table class="table table-striped">
@@ -59,12 +102,7 @@
         </table>
         <br/>
     </div>
-    <div class="tab-pane" id="stats">
-      <br/>
-      Post Count: <%= @post_count %><br/>
-      Comedian Count: <%= @comedian_count %><br/>
-      Total Time: <%= "#{number_with_precision(@hours, :delimiter => ',', precision: 2)}" %> hours
-    </div>
+
 
   </div>
   <br/>

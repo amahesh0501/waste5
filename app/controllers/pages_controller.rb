@@ -10,8 +10,6 @@ class PagesController < ApplicationController
     @no_comedian_posts = comedian.posts
 
     @posts = Post.all
-    @post_count = Post.all.length
-    @comedian_count = Comedian.all.length
     @total_time = 0
     @posts.each {|post| @total_time += post.duration}
     @hours = @total_time/3600.to_f

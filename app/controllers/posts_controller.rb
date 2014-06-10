@@ -110,25 +110,23 @@ class PostsController < ApplicationController
     youtube = client.discovered_api(youtube_api_service_name, youtube_api_version)
     yt_client = YouTubeIt::Client.new(:dev_key => developer_key)
 
-
-    id = params[:post][:youtube_id]
-    video = yt_client.video_by(id)
-    title = video.title
-    video.description ? description = video.description : description = ""
-    video.uploaded_at ? uploaded_at = video.uploaded_at : uploaded_at = "2000-01-01 01:01:01.000000"
-    video.view_count ? view_count = video.view_count : view_count = 0
-    video.duration ? duration = video.duration : duration = 0
-    image_url = "http://i1.ytimg.com/vi/#{id}/hqdefault.jpg"
-    post = Post.new(youtube_id: params[:post][:youtube_id], title: title, description: description, date: uploaded_at, view_count: view_count, duration: duration, comedian_id: params[:post][:comedian_id], image_url: image_url)
-
-
-    if post.save
-      redirect_to post_path(post)
-    else
-      flash[:errors] = post.errors.full_messages
-      flash[:post] = params[:post]
-      redirect_to new_post_path
+    input = params[:post][:youtube_id]
+    posts_to_add = input.split(',').map(&:strip)
+    posts_to_add.each do |yt_vid_key|
+      id = yt_vid_key
+      video = yt_client.video_by(id)
+      title = video.title
+      video.description ? description = video.description : description = ""
+      video.uploaded_at ? uploaded_at = video.uploaded_at : uploaded_at = "2000-01-01 01:01:01.000000"
+      video.view_count ? view_count = video.view_count : view_count = 0
+      video.duration ? duration = video.duration : duration = 0
+      image_url = video.thumbnails[2].url
+      post = Post.new(youtube_id: yt_vid_key, title: title, description: description, date: uploaded_at, view_count: view_count, duration: duration, comedian_id: params[:post][:comedian_id], image_url: image_url)
+      post.save
     end
+    redirect_to admin_path
+
+    
 
   end
 
@@ -142,7 +140,7 @@ class PostsController < ApplicationController
     admin_only
     post = Post.find(params[:id])
     if post.update_attributes(params[:post])
-      redirect_to post_path(post)
+      redirect_to admin_path
     else
       flash.now[:errors] = @question.errors.full_messages
       erb :edit
