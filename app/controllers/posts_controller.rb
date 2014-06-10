@@ -89,6 +89,7 @@ class PostsController < ApplicationController
   def new
     admin_only
     @post = Post.new
+    @create_post = true
     @comedians = Comedian.order("name")
 
   end

@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+  <!-- Basics -->
   <title>Waste5 Standup Comedy</title>
   <% if @post %>
   <meta name="description" content="<%= @post.title %>">
   <% end %>
+
+  <!-- Rails Pipeline -->
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 
@@ -23,49 +27,42 @@
 
   <link rel="stylesheet" href="/assets/theme.css">
 
-  <script>
-    function onPlayerStateChange(event) {
-      if(event.data ===  YT.PlayerState.ENDED) {
-        location.reload();
-      }
-    }
 
-    $(function() {
 
-      var refreshVideo = function() {
-        new YT.Player('explore_js', {
-          events: {
-            'onStateChange': onPlayerStateChange
-          }
-        });
-      }
-      $(window).load(refreshVideo);
-    });
-  </script>
+  <!-- FB Stuff -->
 
   <% if @post %>
-    <meta property="og:title" content="<%=@post.title%>">
-    <meta property="og:image" content="<%=@post.image_url%>" />
+    <% unless @create_post = true %>
+      <meta property="og:title" content="<%=@post.title%>">
+      <meta property="og:url" content="http://www.wast5.com/posts/><%=@post.id%>" />
+      <% if @post.image_url.length > 2 %>
+        <meta property="og:image" content="<%=@post.image_url%>" />
+      <% else %>
+        <meta property="og:image" content="/assets/fb.jpg" />
+      <% end  %>
+    <% end %>
   <%else%>
-    <meta property="og:title" content="Waste5 Standup Comedy">
+   <meta property="og:title" content="Waste5 Standup Comedy">
     <meta property="og:image" content="/assets/fb.jpg" />
   <% end %>
+  <meta property="og:type" content="article" />
 
 
 
-
+  <!-- Font Awesome -->
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
   <!-- Responsive on Mobile -->
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
 
-  <!-- Homescreen Images -->
-  <link rel=”apple-touch-icon” href=”/apple-touch-icon.png”/>
-  <link rel=”apple-touch-icon-precomposed” href=”/apple-touch-icon.png”/>
+  <!-- Mobile Icons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="57.jpg" />
+  <link rel="apple-touch-icon" sizes="72x72" href="72.jpg" />
+  <link rel="apple-touch-icon" sizes="114x114" href="114.jpg" />
+  <link rel="apple-touch-icon" sizes="144x144" href="144.jpg" />
 
-
-  <!-- Font Awesome -->
-  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- More Mobile Stuff -->
 
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
@@ -75,6 +72,28 @@
   <script src="/assets/addtohomescreen.js"></script>
   <script>
   addToHomescreen();
+  </script>
+
+  <!-- YouTube Autoplay -->
+
+  <script>
+  function onPlayerStateChange(event) {
+    if(event.data ===  YT.PlayerState.ENDED) {
+      location.reload();
+    }
+  }
+
+  $(function() {
+
+    var refreshVideo = function() {
+      new YT.Player('explore_js', {
+        events: {
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
+    $(window).load(refreshVideo);
+  });
   </script>
 
 
@@ -87,7 +106,7 @@
 
 <body class="page-body">
 
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>
