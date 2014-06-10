@@ -15,7 +15,7 @@ class PostsController < ApplicationController
       @time = "short"
     elsif session[:type] == "medium"
       posts = Post.where("duration < ? AND duration > ?", 1800, 299 )
-      @time = "medium"
+      @time = "medium length"
     elsif session[:type] == "long"
       posts = Post.where("duration > ?", 1799)
       @time = "long"
@@ -41,13 +41,13 @@ class PostsController < ApplicationController
   def show
     if session[:type] == "short"
       posts = Post.where("duration < ?", 300)
-      @time = "shorter than 5 minutes"
+      @time = "short"
     elsif session[:type] == "medium"
       posts = Post.where("duration < ? AND duration > ?", 1800, 299 )
-      @time = "between 5 and 30 minutes long"
+      @time = "medium length"
     elsif session[:type] == "long"
       posts = Post.where("duration > ?", 1799)
-      @time = "longer than 30 minutes."
+      @time = "long"
     elsif session[:type] == "all"
       posts = Post.all
     else
