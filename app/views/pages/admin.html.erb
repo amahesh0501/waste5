@@ -22,7 +22,7 @@
   <div class="tab-content">
     <div class="tab-pane active" id="posts">
       <br/>
-      <p>There are <%= @posts.length %> posts from <%= @comedians.length %> comedians totaling <%= "#{number_with_precision(@hours, :delimiter => ',', precision: 2)}" %> hours of video.</p>
+      <p>There are <%= @posts.length %> posts from <%= @comedians.length %> comedians totaling <%= "#{number_with_precision(@hours, :delimiter => ',', precision: 2)}" %> hours of video. (<%= "#{number_with_precision(@hours/2, :delimiter => ',', precision: 2)}" %> days!)</p>
       <br/>
       <table class="table table-striped">
         <% @posts.each do |post| %>
