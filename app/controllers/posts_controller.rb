@@ -139,6 +139,9 @@ class PostsController < ApplicationController
 
     redirect_to admin_path
   end
+
+ 
+
 end
 
 

@@ -10,11 +10,7 @@ class ComediansController < ApplicationController
 
   def show
     @comedian = Comedian.find(params[:id])
-    posts = @comedian.posts
-    @post = posts.sample
-    @video_id = @post.youtube_id
-    @next_post = posts.sample
-    params[:autoplay] ? @autoplay = 1 : @autoplay = 0
+    @posts = @comedian.posts
   end
 
   def new

@@ -1,0 +1,18 @@
+<div class="page-container">
+  <%= render 'layouts/sidebar' %>
+  <div id="page-wrapper">
+   <div class="row">
+    <h3 class="table_page_header">Random Videos</h3>
+    <br/>
+      <table class="table table-striped">
+        <% @posts.each do |post| %>
+            <tr>
+              <td><%= link_to image_tag(post.image_url, height: '100', width: '100'), post_path(post)  %></td>
+              <td><%= link_to post.title, post_path(post) %></td>
+              <td><%= link_to "#{post.duration/60} min.", post_path(post) %></td>
+            </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

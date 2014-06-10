@@ -223,6 +223,29 @@ body{
     padding-left: 10px;
   }
 
+  .navbar-header{
+    background-color: #34495e !important;
+  }
+
+  .navbar-nav{
+    background-color: #34495e !important;
+    margin-top: -12px !important;
+    margin-bottom: -0px !important;
+  }
+
+  .sidebar_link{
+    color: white !important;
+  }
+
+  .sidebar_link:hover {
+  background-color: #34495e !important;
+  color: white !important;
+  }
+
+  .table_page_header{
+    padding-left: 10px;
+  }
+
 
 
 
@@ -283,4 +306,5 @@ body{
   font-size: 14px;
   color: red;
 }
+
 
