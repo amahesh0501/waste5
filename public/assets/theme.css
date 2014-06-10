@@ -31,6 +31,15 @@ body{
 
   }
 
+  .fb_like_below{
+    display: none;
+  }
+
+  .fb_like_side{
+    padding-top: 35px;
+    padding-left: 5px;
+  }
+
 
 
 
@@ -144,9 +153,7 @@ body{
     visibility: hidden;
   }
 
-  .homescreen_group{
-    visibility: hidden;
-  }
+ 
 
 
 
@@ -246,16 +253,19 @@ body{
     padding-left: 10px;
   }
 
+  .fb_like_side{
+    display: none;
+  }
 
-
-
-
-
-
-
+  .fb_like_bottom{
+    display: block;
+  }
 
 
 }
+
+
+
 
 .left-nav{
   left: 0 !important;
@@ -318,6 +328,18 @@ body{
   font-family: 'Open Sans', sans-serif !important;
   font-weight: lighter;
 }
+
+ .homescreen_group{
+    display: none;
+  }
+
+
+  @media only screen and (max-device-width: 480px) {
+       .homescreen_group {display:block !important}
+     }
+
+
+
 
 
 
