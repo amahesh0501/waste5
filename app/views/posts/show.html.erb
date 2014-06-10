@@ -35,8 +35,102 @@
 
       <%= button_to "Next Video", post_path(@next_post, :autoplay => 1), :method => :get, class: "btn btn-green next_video" %>
       </div>
-      <br/>
-      <p><%= link_to "<i class='fa fa-phone'></i> Add to Homescreen".html_safe, homescreen_path, class: "homescreen_link" %></p>
+
+      <div class="panel-group homescreen_group" id="accordion">
+
+        <div class="panel panel-default homescreen_panel">
+          <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseTwo">
+            <div class="panel-heading homescreen_heading">
+              <p class="panel-title homescreen_title">
+                <span class="homescreen_text">&nbsp;&nbsp;<i class='fa fa-phone'></i> Add to Homescreen</span>
+              </p>
+            </div>
+          </a>
+          <div id="collapseTwo" class="panel-collapse collapse">
+            <div class="panel-body">
+              <ul class="nav nav-tabs">
+                <li class="active"><a href="#ios" data-toggle="tab"><i class='fa fa-apple'></i> iOS</a></li>
+                <li><a href="#android" data-toggle="tab"><i class='fa fa-android'></i> Android</a></li>
+              </ul>
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div class="tab-pane active" id="ios">
+                  <br/>
+                  <div class="panel-group" id="accordion">
+
+                    <div class="panel panel-default">
+                      <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseOne">
+                        <div class="panel-heading">
+                          <h4 class="panel-title">
+                            Safari
+                          </h4>
+                        </div>
+                      </a>
+                      <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                          <ol>
+                            <li>Tap <img width="10" height="14" src="http://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/1Tips-icons/II062-share_icon_2x.png" alt=""> , then tap Add to Home Screen.</li>
+                          </ol>
+
+                        </div>
+                      </div>
+                    </div>
+
+
+
+
+                  </div>
+                </div>
+                <div class="tab-pane" id="android">
+                  <br/>
+                  <div class="panel-group" id="accordion">
+
+                    <div class="panel panel-default">
+                      <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseOne">
+                        <div class="panel-heading">
+                          <h4 class="panel-title">
+                            Google Chrome
+                          </h4>
+                        </div>
+                      </a>
+                      <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                          <ol>
+                            <li>Tap  <i class='fa fa-ellipsis-v'></i>, then tap Add to homescreen</li>
+                          </ol>
+
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                      <a data-toggle="collapse" data-parent="#accordion-test" href="#collapsefirefox">
+                        <div class="panel-heading">
+                          <h4 class="panel-title">
+                            Mozilla Firefox
+                          </h4>
+                        </div>
+                      </a>
+                      <div id="collapsefirefox" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                          <ol>
+                            <li>Tap  <i class='fa fa-ellipsis-v '></i>, then tap <i class='fa fa-star-o'></i>. </li>
+                            <li>In the "Bookmark added" popup, tap the "Options" button, then tap "Add to Home Screen".</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
       <br/><br/>
 
 

@@ -18,18 +18,43 @@ class ComediansController < ApplicationController
   end
 
   def new
+    admin_only
     @comedian = Comedian.new
   end
 
   def create
-    @comedian = Comedian.new(params[:question])
-    if @question.save
-    @user.questions << @question
-    redirect_to city_question_path(@city, @question)
+    admin_only
+    @comedian = Comedian.new(params[:comedian])
+    if @comedian.save
+      redirect_to admin_path
     else
-    flash.now[:errors] = @question.errors.full_messages
-    render :new
+      flash.now[:errors] = @comedian.errors.full_messages
+      render :new
     end
+  end
+
+  def edit
+    admin_only
+    @comedian = Comedian.find(params[:id])
+  end
+
+  def update
+    admin_only
+  end
+
+  def destroy
+    admin_only
+    comedian = Comedian.find(params[:id])
+    posts = comedian.posts
+    posts.each do |post|
+      default_comedian = Comedian.find_by_name("_no_name")
+      post.comedian_id = default_comedian.id
+      post.save
+    end
+    comedian.destroy
+
+
+    redirect_to admin_path
   end
 
 

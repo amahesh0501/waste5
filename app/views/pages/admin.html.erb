@@ -4,12 +4,15 @@
   <a href="/users/edit">Edit User Profile</a> | <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
 <% end %>
 
+
+
 <br/><br/>
 
   <ul class="nav nav-tabs">
     <li class="active" ><a href="#reports" data-toggle="tab">Reports</a></li>
-    <li><a href="#no_comedian" data-toggle="tab">Posts with No Comedian</a></li>
-    <li><a href="#all_comedians" data-toggle="tab">List of Comedians</a></li>
+    <li><a href="#all_comedians" data-toggle="tab">Comedians</a></li>
+    <li><a href="#no_comedian" data-toggle="tab">No Comedian Posts</a></li>
+    <li><a href="#stats" data-toggle="tab">Stats</a></li>
 
   </ul>
 
@@ -22,33 +25,45 @@
             <% if report.post_to_report %>
               <% post = Post.find(report.post_to_report) %>
               <tr>
-                <td><%= link_to report.post_to_report, post_path(post) %></td>
+                <td><%= link_to post.title, post_path(post) %></td>
                 <td><%= link_to "Delete Post", post_path(post), :method => 'delete' %> | <%= link_to "Dismiss Report", report_path(report), :method => 'delete' %>  </td>
               </tr>
             <% end %>
           <% end %>
         </table>
+
+        <%= link_to "Destroy all reports",destroy_reports_path %>
       </div>
-      <div class="tab-pane" id="no_comedian">
-        <br/>
-        <table class="table table-striped">
-          <% @no_comedian_posts.each do |post| %>
-            <tr>
-              <td><%= link_to post.name, edit_post_path(post.id)  %></td>
-            </tr>
-          <% end %>
-        </table>
-        <br/>
-    </div>
+
     <div class="tab-pane" id="all_comedians">
       <br/>
       <table class="table table-striped">
         <% @comedians.each do |comedian| %>
           <tr>
             <td><%= link_to comedian.name, comedian_path(comedian.id)  %></td>
+            <% posts = comedian.posts %>
+            <td><%= posts.length %></td>
+            <td><%= link_to "Destroy", comedian_path(comedian.id), :method => 'delete', confirm: "Are you sure?" %></td>
           </tr>
         <% end %>
       </table>
+    </div>
+      <div class="tab-pane" id="no_comedian">
+        <br/>
+        <table class="table table-striped">
+          <% @no_comedian_posts.each do |post| %>
+            <tr>
+              <td><%= link_to post.title, edit_post_path(post.id)  %></td>
+            </tr>
+          <% end %>
+        </table>
+        <br/>
+    </div>
+    <div class="tab-pane" id="stats">
+      <br/>
+      Post Count: <%= @post_count %><br/>
+      Comedian Count: <%= @comedian_count %><br/>
+      Total Time: <%= "#{number_with_precision(@hours, :delimiter => ',', precision: 2)}" %> hours
     </div>
 
   </div>

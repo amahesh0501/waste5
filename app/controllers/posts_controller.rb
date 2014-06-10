@@ -1,8 +1,12 @@
+
+
+
 class PostsController < ApplicationController
 
 
 
   def index
+    redirect_to root_path
   end
 
   def browse
@@ -83,14 +87,54 @@ class PostsController < ApplicationController
 
 
   def new
+    admin_only
+    @post = Post.new
+    @comedians = Comedian.order("name")
+
   end
 
   def create
+    admin_only
+
+    require 'rubygems'
+    require 'google/api_client'
+    require 'trollop'
+    require 'youtube_it'
+
+    developer_key = "AIzaSyCE0MVxKIJWDbbcfFBDwqD2PW7Igpo8zwY"
+    youtube_api_service_name = "youtube"
+    youtube_api_version = "v3"
+    client = Google::APIClient.new(:key => developer_key,
+                                   :authorization => nil)
+    youtube = client.discovered_api(youtube_api_service_name, youtube_api_version)
+    yt_client = YouTubeIt::Client.new(:dev_key => developer_key)
+
+
+    id = params[:post][:youtube_id]
+    video = yt_client.video_by(id)
+    title = video.title
+    video.description ? description = video.description : description = ""
+    video.uploaded_at ? uploaded_at = video.uploaded_at : uploaded_at = "2000-01-01 01:01:01.000000"
+    video.view_count ? view_count = video.view_count : view_count = 0
+    video.duration ? duration = video.duration : duration = 0
+    image_url = "http://i1.ytimg.com/vi/#{id}/hqdefault.jpg"
+    post = Post.new(youtube_id: params[:post][:youtube_id], title: title, description: description, date: uploaded_at, view_count: view_count, duration: duration, comedian_id: params[:post][:comedian_id], image_url: image_url)
+
+
+    if post.save
+      redirect_to post_path(post)
+    else
+      flash[:errors] = post.errors.full_messages
+      flash[:post] = params[:post]
+      redirect_to new_post_path
+    end
+
   end
 
   def edit
     admin_only
     @post = Post.find(params[:id])
+    @comedians = Comedian.order("name")
   end
 
   def update

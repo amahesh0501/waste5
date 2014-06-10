@@ -211,6 +211,10 @@ body{
     margin-left: -10px !important;
   }
 
+  a:hover{
+    text-decoration: none;
+  }
+
   .homescreen_group{
     margin-top: 10px;
   }
@@ -277,5 +281,6 @@ body{
 
 .report-vid{
   font-size: 14px;
+  color: red;
 }
 

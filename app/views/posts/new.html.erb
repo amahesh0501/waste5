@@ -1,0 +1,14 @@
+<br/><br/>
+<div class="container">
+  <%= form_for [@post] do |f| %>
+     <div class="form-group">
+       <%= f.label :youtube_id %><br/>
+       <%= f.text_field :youtube_id %>
+    </div>
+    <div class="form-group">
+      <%= f.label :comedian_id %><br/>
+      <%= f.collection_select :comedian_id, @comedians, :id, :name, prompt: true %>
+   </div>
+    <%= f.submit 'Submit', :class => "btn btn-success" %>
+  <% end %>
+</div>

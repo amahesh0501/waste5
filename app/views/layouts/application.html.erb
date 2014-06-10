@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Waste5</title>
+  <title>Waste5 Standup Comedy</title>
+  <% if @post %>
+  <meta name="description" content="<%= @post.title %>">
+  <% end %>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 
@@ -42,6 +45,10 @@
 
   <% if @post %>
     <meta property="og:title" content="<%=@post.title%>">
+    <meta property="og:image" content="<%=@post.image_url%>" />
+  <%else%>
+    <meta property="og:title" content="Waste5 Standup Comedy">
+    <meta property="og:image" content="/assets/fb.jpg" />
   <% end %>
 
 
@@ -59,6 +66,16 @@
 
   <!-- Font Awesome -->
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <meta name="apple-mobile-web-app-title" content="Add to Home">
+  <link rel="stylesheet" type="text/css" href="/assets/addtohomescreen.css">
+  <script src="/assets/addtohomescreen.js"></script>
+  <script>
+  addToHomescreen();
+  </script>
 
 
 

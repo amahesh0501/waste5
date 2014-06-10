@@ -13,6 +13,7 @@ Waste5::Application.routes.draw do
 
   match '/search', :to => 'posts#search'
   match '/report', :to => 'reports#report'
+  match '/destroy_reports', :to => 'reports#reportsgoboom'
 
 
   match '/browse', :to => 'posts#browse'
@@ -87,9 +88,5 @@ Waste5::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
-
-  devise_scope :user do
-    get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
-  end
 
 end

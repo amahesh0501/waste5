@@ -10,6 +10,7 @@ class CreatePosts < ActiveRecord::Migration
       t.integer :duration
       t.integer :rating
       t.string :category
+      t.string :image_url
       t.boolean :revoked, default: false
 
       t.timestamps

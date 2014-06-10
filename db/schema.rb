@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20140323045626) do
     t.integer  "duration"
     t.integer  "rating"
     t.string   "category"
+    t.string   "image_url"
     t.boolean  "revoked",     :default => false
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false

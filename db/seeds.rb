@@ -1395,7 +1395,8 @@ comedians.each do |comedian|
           video.uploaded_at ? uploaded_at = video.uploaded_at : uploaded_at = "2000-01-01 01:01:01.000000"
           video.view_count ? view_count = video.view_count : view_count = 0
           video.duration ? duration = video.duration : duration = 0
-          Post.create(youtube_id: id, title: title, description: description, date: uploaded_at, view_count: view_count, duration: duration, comedian_id: current_comedian.id, category: category)
+          image_url = "http://i1.ytimg.com/vi/#{id}/hqdefault.jpg"
+          Post.create(youtube_id: id, title: title, description: description, date: uploaded_at, view_count: view_count, duration: duration, comedian_id: current_comedian.id, category: category, image_url: image_url)
         end
       # end
     end
