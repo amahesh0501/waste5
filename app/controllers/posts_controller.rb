@@ -19,21 +19,6 @@ class PostsController < ApplicationController
     elsif session[:type] == "long"
       posts = Post.where("duration > ?", 1799)
       @time = "long"
-    # elsif session[:type] == "african_american"
-    #   posts = Post.where("category = ?", "black" || "black woman")
-    #   @cat = "african_american"
-    # elsif session[:type] == "white"
-    #   posts = Post.where("category = ?", "white" || "white woman")
-    #   @cat = "white"
-    # elsif session[:type] == "mei"
-    #   posts = Post.where("category = ?", "mei" || "mei woman")
-    #   @cat = "mei"
-    # elsif session[:type] == "latino"
-    #   posts = Post.where("category = ?", "latino" || "latino woman")
-    #   @cat = "latino"
-    # elsif session[:type] == "asian"
-    #   posts = Post.where("category = ?", "asian" || "asian woman")
-    #   @cat = "asian"
     elsif session[:type] == "all"
       posts = Post.all
     else
@@ -43,6 +28,7 @@ class PostsController < ApplicationController
 
 
     @post = posts.sample
+    @comedian = Comedian.find(@post.comedian_id) if @post.comedian_id
     @video_id = @post.youtube_id
     @next_post = posts.sample
     params[:autoplay] ? @autoplay = 1 : @autoplay = 0
@@ -55,20 +41,13 @@ class PostsController < ApplicationController
   def show
     if session[:type] == "short"
       posts = Post.where("duration < ?", 300)
+      @time = "shorter than 5 minutes"
     elsif session[:type] == "medium"
       posts = Post.where("duration < ? AND duration > ?", 1800, 299 )
+      @time = "between 5 and 30 minutes long"
     elsif session[:type] == "long"
       posts = Post.where("duration > ?", 1799)
-    # elsif session[:type] == "african_american"
-    #   posts = Post.where("category = ?", "black" || "black woman")
-    # elsif session[:type] == "white"
-    #   posts = Post.where("category = ?", "white" || "white woman")
-    # elsif session[:type] == "mei"
-    #   posts = Post.where("category = ?", "mei" || "mei woman")
-    # elsif session[:type] == "latino"
-    #   posts = Post.where("category = ?", "latino" || "latino woman")
-    # elsif session[:type] == "asian"
-    #   posts = Post.where("category = ?", "asian" || "asian woman")
+      @time = "longer than 30 minutes."
     elsif session[:type] == "all"
       posts = Post.all
     else
@@ -76,6 +55,7 @@ class PostsController < ApplicationController
     end
 
     @post = Post.find(params[:id])
+    @comedian = Comedian.find(@post.comedian_id) if @post.comedian_id
     @video_id = @post.youtube_id
     @next_post = posts.sample
     params[:autoplay] ? @autoplay = 1 : @autoplay = 0

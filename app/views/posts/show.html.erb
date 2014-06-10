@@ -22,13 +22,15 @@
    <div class="row">
     <iframe id="explore_js" src="https://www.youtube.com/embed/<%=@video_id%>?enablejsapi=1&autoplay=1&autohide=1&showinfo=0" frameborder="0" class="explore_embed" allowfullscreen></iframe>
     <div class="vid-description">
+
         <h3>
          <%= @post.title %>
          <%= link_to "<i class='fa fa-flag report-vid' title='Report this video'></i>".html_safe, {:controller => "reports", :action => "report", :post_to_report => @post.id } %>
 
        </h3>
 
-
+      <p>Comedian: <%= link_to @comedian.name, comedian_path(@comedian) %>  </p>
+       
        <p><iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.waste5.com%2Fposts%2F<%=@post.id%>&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21&amp;appId=311642788912956" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe></p>
 
 
@@ -39,7 +41,7 @@
       <div class="panel-group homescreen_group" id="accordion">
 
         <div class="panel panel-default homescreen_panel">
-          <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseTwo">
+          <a data-toggle="collapse" class="add_panel_link" data-parent="#accordion-test" href="#collapseTwo">
             <div class="panel-heading homescreen_heading">
               <p class="panel-title homescreen_title">
                 <span class="homescreen_text">&nbsp;&nbsp;<i class='fa fa-phone'></i> Add to Homescreen</span>

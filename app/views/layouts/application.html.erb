@@ -65,11 +65,6 @@
   <meta name="mobile-web-app-capable" content="yes">
 
   <meta name="apple-mobile-web-app-title" content="Add to Home">
-  <link rel="stylesheet" type="text/css" href="/assets/addtohomescreen.css">
-  <script src="/assets/addtohomescreen.js"></script>
-  <script>
-  addToHomescreen();
-  </script>
 
   <!-- YouTube Autoplay -->
 
@@ -91,6 +86,16 @@
     }
     $(window).load(refreshVideo);
   });
+  </script>
+
+  <!-- Homescreen -->
+  <script type="text/javascript">
+    $(function() {
+        $(".add_panel_link").on("click", function() {
+            $("body").animate({"scrollTop": window.scrollY+300}, 1000);
+            return false;
+        });
+    }); 
   </script>
 
 
