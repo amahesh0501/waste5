@@ -37,6 +37,8 @@ class ComediansController < ApplicationController
   def update
     admin_only
     @comedian = Comedian.find(params[:id])
+    @comedian.name = params[:comedian][:name]
+    @comedian.save
     redirect_to comedian_path(@comedian)
   end
 
