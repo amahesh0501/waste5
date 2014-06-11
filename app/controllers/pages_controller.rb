@@ -14,10 +14,10 @@ class PagesController < ApplicationController
     @posts.each {|post| @total_time += post.duration}
     @hours = @total_time/3600.to_f
 
-    @all_posts = []
-    @all_comedians = []
-    @posts.each {|post| @all_posts << [post.id, post.youtube_id, post.title, post.duration, post.category, post.comedian_id]}
-    @comedians.each {|comedian| @all_comedians << [comedian.id, comedian.name]}
+    # @all_posts = []
+    # @all_comedians = []
+    # @posts.each {|post| @all_posts << [post.id, post.youtube_id, post.title, post.duration, post.category, post.comedian_id]}
+    # @comedians.each {|comedian| @all_comedians << [comedian.id, comedian.name]}
 
 
 
@@ -48,6 +48,13 @@ class PagesController < ApplicationController
   end
 
   def homescreen
+  end
+
+  def comedian_purge
+    admin_only
+    comedians = Comedian.all
+    comedians.each {|comedian| comedian.destroy if comedian.posts.length == 0}
+    redirect_to admin_path
   end
 
 

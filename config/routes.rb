@@ -11,6 +11,7 @@ Waste5::Application.routes.draw do
   match '/admin', :to => 'pages#admin'
   match '/homescreen', :to => 'pages#homescreen'
   match '/show_list', :to => 'pages#show_video_list'
+  match '/comedian_purge', :to => 'pages#comedian_purge'
 
   match '/search', :to => 'posts#search'
   match '/report', :to => 'reports#report'
