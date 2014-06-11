@@ -50,12 +50,7 @@ class PagesController < ApplicationController
   def homescreen
   end
 
-  def comedian_purge
-    admin_only
-    comedians = Comedian.all
-    comedians.each {|comedian| comedian.destroy if comedian.posts.length == 0}
-    redirect_to admin_path
-  end
+
 
 
 end
