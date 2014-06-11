@@ -12,8 +12,7 @@
 
 
   <ul class="nav nav-tabs">
-    <li class="active" ><a href="#posts" data-toggle="tab">Posts</a></li>
-    <li><a href="#all_comedians" data-toggle="tab">Comedians</a></li>
+    <li class="active" ><a href="#comedians" data-toggle="tab">Comedians</a></li>
     <li><a href="#reports" data-toggle="tab">Reports</a></li>
     <li><a href="#no_comedian" data-toggle="tab">No Comedian Posts</a></li>
     <li><a href="#arr" data-toggle="tab">Array</a></li>
@@ -21,27 +20,9 @@
 
   <!-- Tab panes -->
   <div class="tab-content">
-    <div class="tab-pane active" id="posts">
+    <div class="tab-pane active" id="comedians">
       <br/>
       <p>There are <%= @posts.length %> posts from <%= @comedians.length %> comedians totaling <%= "#{number_with_precision(@hours, :delimiter => ',', precision: 2)}" %> hours of video. (<%= "#{number_with_precision(@hours/24, :delimiter => ',', precision: 2)}" %> days!)</p>
-      <br/>
-      <table class="table table-striped">
-        <% @posts.each do |post| %>
-          <% comedian = Comedian.find(post.comedian_id) if post.comedian_id %>
-            <tr>
-              <td><%= link_to post.id, post_path(post) %></td>
-              <td><%= link_to post.title, edit_post_path(post) %></td>
-              <td><%= link_to post.youtube_id, edit_post_path(post) %></td>
-              <td><%= link_to "#{post.duration/60} minutes", edit_post_path(post) %></td>
-              <% if comedian %>
-                <td><%= link_to comedian.name, comedian_path(comedian) %></td>
-              <% end %>
-              <td><%= link_to post.created_at.strftime("%m/%d/%Y"), post_path(post) %></td>
-            </tr>
-        <% end %>
-      </table>
-    </div>
-    <div class="tab-pane" id="all_comedians">
       <br/>
 
       <table class="table table-striped">
