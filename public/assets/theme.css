@@ -31,14 +31,6 @@ body{
 
   }
 
-  .fb_like_below{
-    display: none;
-  }
-
-  .fb_like_side{
-    padding-top: 35px;
-    padding-left: 5px;
-  }
 
 
 
@@ -253,13 +245,6 @@ body{
     padding-left: 10px;
   }
 
-  .fb_like_side{
-    display: none;
-  }
-
-  .fb_like_bottom{
-    display: block;
-  }
 
 
 }
