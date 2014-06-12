@@ -145,6 +145,10 @@ body{
     visibility: hidden;
   }
 
+  .alert{
+    width:415px !important;
+  }
+
  
 
 
@@ -314,7 +318,7 @@ body{
   font-weight: lighter;
 }
 
- .homescreen_group, .mobile_time{
+ .homescreen_group{
     display: none;
   }
 
@@ -325,7 +329,6 @@ body{
 
   @media only screen and (max-device-width: 480px) {
        .homescreen_group {display:block !important}
-       .mobile_time {display:block !important}
      }
 
 
