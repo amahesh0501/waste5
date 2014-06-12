@@ -15,7 +15,7 @@ class PostsController < ApplicationController
       @time = "short"
     elsif session[:type] == "medium"
       posts = Post.where("duration < ? AND duration > ?", 1800, 299 )
-      @time = "medium length"
+      @time = "mid-length"
     elsif session[:type] == "long"
       posts = Post.where("duration > ?", 1799)
       @time = "long"
@@ -44,7 +44,7 @@ class PostsController < ApplicationController
       @time = "short"
     elsif session[:type] == "medium"
       posts = Post.where("duration < ? AND duration > ?", 1800, 299 )
-      @time = "medium length"
+      @time = "mid-length"
     elsif session[:type] == "long"
       posts = Post.where("duration > ?", 1799)
       @time = "long"
