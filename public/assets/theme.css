@@ -314,13 +314,18 @@ body{
   font-weight: lighter;
 }
 
- .homescreen_group{
+ .homescreen_group, .mobile_time{
     display: none;
+  }
+
+  .mobile_time{
+    font-size: 12px;
   }
 
 
   @media only screen and (max-device-width: 480px) {
        .homescreen_group {display:block !important}
+       .mobile_time {display:block !important}
      }
 
 
