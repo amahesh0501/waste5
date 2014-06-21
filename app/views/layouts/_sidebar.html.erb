@@ -18,6 +18,10 @@
 
             <div class="sidebar_logo_div"><%= link_to "<span class='wlogo'>W</span><b>5</b>".html_safe, all_path, class: "sidebar_logo" %></div>
 
+            <form method="get" action="/posts">
+              <input type="text" name="search" class="search-input" placeholder="Search something..."/>
+            </form>
+
             <li class="side-nav-border"><%= link_to "<i class='fa fa-home'></i> Home".html_safe, all_path, class: "sidebar_link" %></li>
             <li class="side-nav-border"><%= link_to "<i class='fa fa-youtube-play'></i> Browse Videos".html_safe, show_list_path, class: "sidebar_link" %></li>
             <li class="side-nav-border"><a href="/comedians" class="sidebar_link"><i class="fa fa-users"></i>  Comedians</a></li>
@@ -32,9 +36,8 @@
             <li class="side-nav-border"><a href="mailto:waste5tips@gmail.com?subject=Feedback%20%2F%20Suggested%20Video%20for%20Waste5&body=Submit%20your%20feedback%20or%20a%20link%20to%20a%20video%20you%20would%20like%20us%20to%20add%20here.%20" class="sidebar_link"><i class="fa fa-envelope"></i> Feedback</a></li>
 
             <li class="side-nav-border mobile_bookmark"><%= link_to "<i class='fa fa-phone'></i> Add to Homescreen".html_safe, homescreen_path, class: "sidebar_link" %></li>
-            
+
             <div class="sidebar_ad">
-              <li>.</li>
               <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
               <!-- Sidebar New -->
               <ins class="adsbygoogle"

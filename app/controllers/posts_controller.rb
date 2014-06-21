@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
 
   def index
-    redirect_to root_path
+    @posts = Post.search(params[:search])
   end
 
   def browse

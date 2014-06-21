@@ -1,2 +1,21 @@
+<div class="page-container">
+  <%= render 'layouts/sidebar' %>
+  <div id="page-wrapper">
+   <div class="row">
+    <h3 class="table_page_header">Browse Videos</h3>
+    <p class="table_page_header"><%= "No videos found for your search" if @posts.length == 0 %></p>
+    <br/>
+      <table class="table table-striped">
+        <% @posts.each do |post| %>
+            <tr>
+              <td><%= link_to image_tag(post.image_url, height: '100', width: '100'), post_path(post)  %></td>
+              <td><%= link_to post.title, post_path(post) %></td>
+              <td><%= link_to "#{post.duration/60} min.", post_path(post) %></td>
+            </tr>
+        <% end %>
+      </table>
 
+    </div>
+  </div>
+</div>
 

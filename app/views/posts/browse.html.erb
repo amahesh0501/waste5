@@ -20,40 +20,39 @@
 
 
    <div class="row">
-    <br/>
+
+ 
 
     <iframe id="explore_js" src="https://www.youtube.com/embed/<%=@video_id%>?enablejsapi=1&autoplay=1&autohide=1&showinfo=0" frameborder="0" class="explore_embed" allowfullscreen></iframe>
     <br/><br/>
 
     <div class="vid-description">
-      <div class="row">
-        <div class="col-md-7">
-            <% if @time %>
-             <br/> <div class="alert alert-info">You are only watching <%=@time%> videos. <a href='/all'>Watch Everything</a></div>
-            <%end%>
-           <h3>
-            <%= @post.title %> <span class="mobile_time">
-          </h3>
+      <% if @time %>
+        <br/> <div class="alert alert-info">You are only watching <%=@time%> videos. <a href='/all'>Watch Everything</a></div>
+      <%end%>
+      <h3 class="post_title">
+        <%= @post.title %> <span class="mobile_time">
+      </h3>
 
-          <p><i class="fa fa-user"></i>  <%= link_to @comedian.name, comedian_path(@comedian) %> &nbsp; <%= "<i class='"'fa fa-clock-o'"'></i>&nbsp;#{@post.duration / 60} min.".html_safe %></p>
+      <p><i class="fa fa-user"></i>  <%= link_to @comedian.name, comedian_path(@comedian) %> &nbsp; <%= "<i class='"'fa fa-clock-o'"'></i>&nbsp;#{@post.duration / 60} min.".html_safe %></p>
 
+      <p><iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.waste5.com%2Fposts%2F<%=@post.id%>&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21&amp;appId=311642788912956" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe></p>
 
-          <p><iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.waste5.com%2Fposts%2F<%=@post.id%>&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21&amp;appId=311642788912956" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe></p>
+      <%= button_to "Next Video", post_path(@next_post, :autoplay => 1), :method => :get, class: "btn btn-green next_video" %>
 
-          <%= button_to "Next Video", post_path(@next_post, :autoplay => 1), :method => :get, class: "btn btn-green next_video" %>
-        </div>
-        <div class="col-md-3">
-          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-          <!-- Side Half Banner -->
-          <ins class="adsbygoogle"
-               style="display:inline-block;width:234px;height:60px"
-               data-ad-client="ca-pub-2042522334246049"
-               data-ad-slot="5081907123"></ins>
-          <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
-        </div>
-     </div>
+      <span class="right_ad">
+       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+       <!-- Side Half Banner -->
+       <ins class="adsbygoogle"
+            style="display:inline-block;width:234px;height:60px"
+            data-ad-client="ca-pub-2042522334246049"
+            data-ad-slot="5081907123"></ins>
+       <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+       </script>
+      </span>
+
+    </div>
 
 
 
@@ -162,9 +161,9 @@
 
 
 
-  <br/>
+    <br/>
 
-</div>
+  </div>
 
 
 </div>
