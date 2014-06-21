@@ -1,4 +1,6 @@
-
+html{
+  overflow-x: hidden;
+}
 
 
 
@@ -105,7 +107,7 @@ body{
   }
 
   .explore_embed{
-    height: 400px;
+    height:500px;
     width: 100%;
     padding-right: 15px;
   }
@@ -149,6 +151,11 @@ body{
     width:415px !important;
   }
 
+  .sidebar_ad{
+    margin-top: 50px;
+    margin-left: 30px
+  }
+
  
 
 
@@ -160,6 +167,7 @@ body{
   .btn-green{
     width: 100% !important;
   }
+
 
 }
 
@@ -247,6 +255,10 @@ body{
 
   .table_page_header{
     padding-left: 10px;
+  }
+
+  .sidebar_ad{
+    display: none;
   }
 
 
