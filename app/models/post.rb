@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
 
-  attr_accessible :youtube_id, :title, :description, :comedian_id, :date, :view_count, :duration, :rating, :category, :image_url
+  attr_accessible :youtube_id, :title, :description, :comedian_id, :date, :view_count, :duration, :rating, :category, :image_url, :posts_count
   validates :youtube_id, presence: true
   validates :youtube_id, uniqueness: true
   belongs_to :comedian

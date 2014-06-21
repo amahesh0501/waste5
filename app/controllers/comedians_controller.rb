@@ -3,9 +3,7 @@ class ComediansController < ApplicationController
   def index
     @comedians = []
     @all_comedians = Comedian.all
-    @all_comedians.each {|comedian| @comedians << comedian if comedian.posts.length > 0}
-
-    @comedians = @comedians.group_by{|u| u.name[0]}
+    @all_comedians.each {|comedian| @comedians << comedian if comedian.posts.length > 10}
   end
 
   def show
@@ -55,6 +53,14 @@ class ComediansController < ApplicationController
 
 
     redirect_to admin_path
+  end
+
+
+  def all_comedians
+    @comedians = []
+    @all_comedians = Comedian.all
+    @all_comedians.each {|comedian| @comedians << comedian if comedian.posts.length > 0}
+    @comedians = @comedians.group_by{|u| u.name[0]}
   end
 
 

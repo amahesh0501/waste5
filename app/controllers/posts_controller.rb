@@ -7,6 +7,8 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.search(params[:search])
+    @comedians = Comedian.search(params[:search])
+    @search_term = params[:search]
   end
 
   def browse

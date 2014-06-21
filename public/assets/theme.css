@@ -163,6 +163,22 @@ body{
     border-radius: 3px !important;
   }
 
+  .comedian_header{
+    padding-left: 10px;
+    width: 315px;
+    margin-bottom: 30px;
+  }
+
+  .all_comedian_button{
+    color: white !important;
+    background-color: #00a651 !important;
+    border-radius: 3px !important;
+    margin-left: 10px;
+    float: right;
+    margin-top: -30px;
+  }
+
+
   .mobile_bookmark{
     visibility: hidden;
   }
@@ -291,7 +307,18 @@ body{
     display: none;
   }
 
+  .comedian_header{
+    padding-left: 10px
+  }
 
+  .all_comedian_button{
+    color: white !important;
+    background-color: #00a651 !important;
+    border-radius: 3px !important;
+    padding-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
 
 }
 

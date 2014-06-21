@@ -2,18 +2,50 @@
   <%= render 'layouts/sidebar' %>
   <div id="page-wrapper">
    <div class="row">
-    <h3 class="table_page_header">Browse Videos</h3>
-    <p class="table_page_header"><%= "No videos found for your search" if @posts.length == 0 %></p>
+    <h3 class="table_page_header">Search results for "<%=@search_term%>"</h3>
     <br/>
-      <table class="table table-striped">
-        <% @posts.each do |post| %>
-            <tr>
-              <td><%= link_to image_tag(post.image_url, height: '100', width: '100'), post_path(post)  %></td>
-              <td><%= link_to post.title, post_path(post) %></td>
-              <td><%= link_to "#{post.duration/60} min.", post_path(post) %></td>
-            </tr>
-        <% end %>
-      </table>
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs table_page_header ">
+      <li class="active"><a href="#videos" data-toggle="tab">Videos</a></li>
+      <li><a href="#comedians" data-toggle="tab">Comedians</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div class="tab-pane active" id="videos">
+        <br/>
+        <p class="table_page_header"><%= "No videos found for your search" if @posts.length == 0 %></p>
+          <table class="table table-striped">
+            <% @posts.each do |post| %>
+                <tr>
+                  <td><%= link_to image_tag(post.image_url, height: '100', width: '100'), post_path(post)  %></td>
+                  <td><%= link_to post.title, post_path(post) %></td>
+                  <td><%= link_to "#{post.duration/60} min.", post_path(post) %></td>
+                </tr>
+            <% end %>
+          </table>
+      </div>
+      <div class="tab-pane" id="comedians">
+        <br/>
+        <p class="table_page_header"><%= "No comedians found for your search" if @comedians.length == 0 %></p>
+
+          <table class="table table-striped">
+            <% @comedians.each do |comedian| %>
+               <% post = comedian.posts.first %>
+               <% number_of_videos = comedian.posts.length %>
+                <tr>
+                  <td><%= link_to image_tag(post.image_url, height: '100', width: '100'), comedian_path(comedian)  %></td>
+                  <td><%= link_to comedian.name, comedian_path(comedian) %></td>
+                  <td><%= link_to "#{number_of_videos} videos", comedian_path(comedian) %></td>
+                </tr>
+            <% end %>
+          </table>
+
+      </div>
+    </div>
+
+
 
     </div>
   </div>

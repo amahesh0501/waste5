@@ -17,6 +17,8 @@ Waste5::Application.routes.draw do
   match '/destroy_reports', :to => 'reports#reportsgoboom'
 
 
+  match '/all_comedians', :to => 'comedians#all_comedians'
+
   match '/browse', :to => 'posts#browse'
   match '/short', :to => 'pages#short'
   match '/medium', :to => 'pages#medium'
