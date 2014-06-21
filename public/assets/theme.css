@@ -340,7 +340,8 @@ body{
 
 
   @media only screen and (max-device-width: 480px) {
-       .homescreen_group {display:block !important}
+       .homescreen_group {display:block !important;}
+       .sidebar_ad{display: none;}
      }
 
 
