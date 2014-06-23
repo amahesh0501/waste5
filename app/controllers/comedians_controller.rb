@@ -3,7 +3,7 @@ class ComediansController < ApplicationController
   def index
     @comedians = []
     @all_comedians = Comedian.all
-    @all_comedians.each {|comedian| @comedians << comedian if comedian.posts.length > 10}
+    @all_comedians.each {|comedian| @comedians << comedian if comedian.posts.length > 7}
   end
 
   def show

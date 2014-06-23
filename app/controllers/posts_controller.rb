@@ -21,6 +21,21 @@ class PostsController < ApplicationController
     elsif session[:type] == "long"
       posts = Post.where("duration > ?", 1799)
       @time = "long"
+    elsif session[:type] == "african_american"
+      posts = Post.where("category = ?", "black" || "black woman")
+      @cat = "African American"
+    elsif session[:type] == "white"
+      posts = Post.where("category = ?", "white" || "white woman")
+      @cat = "Caucasian"
+    elsif session[:type] == "mei"
+      posts = Post.where("category = ?", "mei" || "mei woman")
+      @cat = "Middle Eastern / Indian"
+    elsif session[:type] == "latino"
+      posts = Post.where("category = ?", "latino" || "latino woman")
+      @cat = "Latino"
+    elsif session[:type] == "asian"
+      posts = Post.where("category = ?", "asian" || "asian woman")
+      @cat = "Asian"
     elsif session[:type] == "all"
       posts = Post.all
     else
@@ -50,6 +65,21 @@ class PostsController < ApplicationController
     elsif session[:type] == "long"
       posts = Post.where("duration > ?", 1799)
       @time = "long"
+    elsif session[:type] == "african_american"
+      posts = Post.where("category = ?", "black" || "black woman")
+      @cat = "African American"
+    elsif session[:type] == "white"
+      posts = Post.where("category = ?", "white" || "white woman")
+      @cat = "Caucasian"
+    elsif session[:type] == "mei"
+      posts = Post.where("category = ?", "mei" || "mei woman")
+      @cat = "Middle Eastern / Indian"
+    elsif session[:type] == "latino"
+      posts = Post.where("category = ?", "latino" || "latino woman")
+      @cat = "Latino"
+    elsif session[:type] == "asian"
+      posts = Post.where("category = ?", "asian" || "asian woman")
+      @cat = "Asian"
     elsif session[:type] == "all"
       posts = Post.all
     else
@@ -59,7 +89,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comedian = Comedian.find(@post.comedian_id) if @post.comedian_id
     @video_id = @post.youtube_id
-    @next_post = Post.find(@post.id + 1)
+    @next_post = posts.sample
     params[:autoplay] ? @autoplay = 1 : @autoplay = 0
   end
 

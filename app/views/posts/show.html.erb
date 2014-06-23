@@ -24,17 +24,16 @@
     
     <div class="vid-description">
 
-        <% if @time %>
-         <br/> <div class="alert alert-info">You are only watching <%=@time%> videos. <a href='/all'>Watch Everything</a></div>
-        <%end%>
+      <% if @time %>
+        <br/> <div class="alert alert-info">You are only watching <%=@time%> videos. <a href='/all'>Watch Everything</a></div>
+      <%end%>
+      <% if @cat %>
+        <br/> <div class="alert alert-info">You are only watching videos from <%=@cat%> comedians. <a href='/all'>Watch Everything</a></div>
+      <%end%>
         <h3 class="post_title">
          <%= @post.title %> 
        </h3>
-
-       <b><%= @post.category %> </b>
-
-       
-
+      
 
 
       <p><i class="fa fa-user"></i>  <%= link_to @comedian.name, comedian_path(@comedian) %> &nbsp; <%= "<i class='"'fa fa-clock-o'"'></i>&nbsp;#{@post.duration / 60} min.".html_safe %></p>

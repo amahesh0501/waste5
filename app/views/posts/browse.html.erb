@@ -30,6 +30,9 @@
       <% if @time %>
         <br/> <div class="alert alert-info">You are only watching <%=@time%> videos. <a href='/all'>Watch Everything</a></div>
       <%end%>
+      <% if @cat %>
+        <br/> <div class="alert alert-info">You are only watching videos from <%=@cat%> comedians. <a href='/all'>Watch Everything</a></div>
+      <%end%>
       <h3 class="post_title">
         <%= @post.title %> <span class="mobile_time">
       </h3>
