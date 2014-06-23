@@ -43,16 +43,12 @@ class ComediansController < ApplicationController
   def destroy
     admin_only
     comedian = Comedian.find(params[:id])
-    posts = comedian.posts
-    posts.each do |post|
-      default_comedian = Comedian.find_by_name("_no_name")
-      post.comedian_id = default_comedian.id
-      post.save
+    if comedian.posts.length == 0
+      comedian.destroy
+      redirect_to admin_path
+    else
+      redirect_to comedian_path(comedian)
     end
-    comedian.destroy
-
-
-    redirect_to admin_path
   end
 
 
