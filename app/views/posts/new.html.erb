@@ -9,6 +9,10 @@
       <%= f.label :comedian_id %><br/>
       <%= f.collection_select :comedian_id, @comedians, :id, :name, prompt: true %>
    </div>
+    <div class="form-group">
+      <%= f.label :category %><br/>
+      <%= f.select :category, ['black', 'white', 'mei', 'latino', 'asian'], prompt: true%></div>
+   </div>
     <%= f.submit 'Submit', :class => "btn btn-success" %>
   <% end %>
 </div>
