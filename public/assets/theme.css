@@ -184,7 +184,9 @@ body{
   }
 
   .alert{
-    width:415px !important;
+    display:inline-block;
+    margin-top: -45px;
+    margin-bottom: -2px;
   }
 
   .sidebar_ad{
