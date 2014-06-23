@@ -72,6 +72,22 @@ class PagesController < ApplicationController
     @posts = Post.all.sample(100)
   end
 
+  def show_latest
+    @posts = Post.order(:created_at).limit(100).reverse
+  end
+
+  def show_popular
+    @posts = Post.order(:view_count).limit(100).reverse
+  end
+
+  def show_longest
+    @posts = Post.order(:duration).limit(100).reverse
+  end
+
+
+
+
+
   def homescreen
   end
 
